@@ -77,19 +77,19 @@ function Oggetto(_id, _anno, _malati, _morti) {
   this.mostra = function() {
     // disegna, cerchio o quadrato dipende dalla forma, colore dai dati passati
     push();
-    fill(40);
-    translate(grid*(this.id+1),height-64);
+    fill(200);
+    translate(grid*(this.id+1),height-100);
     noStroke();
-    rect(-10,0, 20, -height/6*this.malati*4/maxMalati);
-    fill(255);
-    rect(-10,0, 20, -height/6*this.morti*4/maxMalati);
-    rect(-10,6, 20, 60);
+    rect(-4,0, 2, -height/7*this.malati*4/maxMalati);
+    rect(-4,4, 2, 96);
     fill(0);
+    rect(4,0, 2, -height/7*this.morti*4/maxMalati);
+    rect(4,4, 2, 96);
     textAlign(RIGHT, CENTER);
     rotate(-PI/2);
-    textSize(16);
-    textStyle(BOLD);
-    text(this.anno,-18,0);
+    textSize(30);
+    //textStyle (BOLD);
+    text(this.anno,-20,0);
     pop();
 
 
