@@ -22,7 +22,7 @@ di Ryoji Ikeda
 /*
 ::TO DO::
 diminuire la frequenza del random S/H controllandola con il BPM
-
+aggiungere un bottone play/stop
 */
 
 var monoSynth;
