@@ -2,14 +2,14 @@
 /*
 <><><><><><><><><><><><><><><><><>
 ----------------------------------
-
+10 print
 generatore di glitch in P5js
 by frmurgia © 2017-18 MIT License
 DSII2018 Lab @UNIRSM
 
 https://it.wikipedia.org/wiki/Glitch_(musica)
 
-10 print
+
 
 ispirato al lavoro audio/video minimalista
 di Ryoji Ikeda
