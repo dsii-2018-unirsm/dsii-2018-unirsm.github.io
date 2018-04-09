@@ -1,78 +1,131 @@
+///////////////////
 // Daniele Tabellini @fupete © 2017 MIT License
-// P5js retrieve data from Google Spreadsheets/JSON | Firenze, IT | 4.2017
+// P5js retrieve data from Google Spreadsheets/JSON & make OOP | Firenze, IT | 4.2017
 // Educational purpose, made for DSII2017 lab @UniRSM
 
+// P5js gdoc example inspired on Gist https://gist.github.com/claytical/6a929f14964c867e07d8 by @claytical
 
 // link del doc google spreasheets, deve essere pubblico su web,
 // va copiato la parte di indice nell'url nel formato sotto:
 // https://spreadsheets.google.com/feeds/list/
 // + KEY_URL + /od6/public/values?alt=json
-//
 
+// carica da online
 var url = "https://spreadsheets.google.com/feeds/list/1PLp4YGWOfRabQfHXrlapqOjIIGpDScasxHEuF9mAfOs/od6/public/values?alt=json";
+// oppure carica da file locale File/Save As...
+//var url = "data/values.json";
 
- // array per contenere i dati/oggetto
-var dati = [];
+var ogg = []; // < array di oggetti/classi
+var grid = 0;
+var ruota = true;
+
 
 function setup() {
   pixelDensity(displayDensity());
   createCanvas(windowWidth, windowHeight);
 
-  // richiedi i dati formato JSON e poi chiama la funzione gotSpreadsheet
-  loadJSON(url, gotSpreadsheet);
-  //print("ciao");
+  loadJSON(url, gotSpreadsheet, 'jsonp');   // richiedi i dati formato JSON e poi chiama la funzione gotSpreadsheet
+
   colorMode(HSB);
   //rectMode(CENTER);
 } // setup()
 
-function draw() {
-  // piccolo loop per verificare di avere i dati,
-  // stampa su schermo cerchi con i colori presenti nel google doc
-  background(0,0,61);
-  var padding = width/(dati.length+1);
-  for (var i = 0; i < dati.length; i++) {
-///questo era commentato
-    fill(dati[i].anno,dati[i].mortiuomo,dati[i].mortidonna,dati[i].mortitotali/100);
-    if (dati[i].mortiuomo == "quadrato") {
-       rect(padding + i * padding, height/2, padding*1.2,padding*1.2);
-     } else if (dati[i].mortidonna == "cerchio") {
-       ellipse(padding + i * padding, height/2, padding*1.2,padding*1.2);
-     }
-////fin qui
-    noStroke();
-    fill(255);
-    textAlign(LEFT, CENTER);
-    text(dati[i].anno, padding + (i * padding),height/3);
-    fill(5);
-    ellipse(450,height/3,dati[i].mortiuomo/10,dati[i].mortiuomo/10);
-    ellipse(750,padding+(i*padding),dati[i].mortidonna/10,dati[i].mortidonna/10);
 
+function draw() {
+  // piccolo loop per verificare di avere i dati, stampa su schermo cerchi con i colori presenti nel google doc
+  grid = width/(ogg.length+1);
+
+  background(0,0,21);
+  text("OBJECTS : " + ogg.length, 10,20); // < stampa il numero oggetti in alto a sx
+
+  for (var i=0; i<ogg.length; i++) {   // (muovi e) mostra tutti gli oggetti
+    //ogg[i].muovi();
+    ogg[i].mostra();
   }
 } // draw()
 
+
 function gotSpreadsheet(datiEgx) {
-  //println(colori.feed.entry.length); // < debug, numero righe della tabella
+  console.log(datiEgx.feed.entry.length); // < debug, numero righe della tabella
   for (var i = 0; i < datiEgx.feed.entry.length; i++) {
     // costruzione dell'oggetto singolo, la riga
-    var rigo = {
+    var c = {
                   // dati, nomi delle colonne, i parametri
+                  //colore
                   "anno": datiEgx.feed.entry[i].gsx$anno.$t,
                   //hue
-                 "mortiuomo": datiEgx.feed.entry[i].gsx$mortiuomo.$t,
-                 //era saturation
+                  "mortiuomo": datiEgx.feed.entry[i].gsx$mortiuomo.$t,
+                  //saturation
                   "mortidonna": datiEgx.feed.entry[i].gsx$mortidonna.$t,
                   //brightness
-                   "mortitotali": datiEgx.feed.entry[i].gsx$mortitotali.$t,
-                  //alpha
-                   //"mortitotali": datiEgx.feed.entry[i].gsx$mortitotali.$t,
-                  //forma
-                  // "forma": datiEgx.feed.entry[i].gsx$forma.$t
+                  "mortitotali": datiEgx.feed.entry[i].gsx$mortitotali.$t,
+                  //"alpha": colori.feed.entry[i].gsx$alpha.$t,
+                  //"forma": colori.feed.entry[i].gsx$forma.$t
               }
-              console.log(rigo);
-              //println(colore); // < debug, verifica oggetto 1x1
-    dati.push(rigo); // < inserimento nell'array del dato
+    console.log(c); // < debug, verifica oggetto 1x1
+    // e ora generiamo un nuovo oggetto classe "Oggetto"
+    ogg.push(new Oggetto(i, c.anno, c.mortiuomo, c.mortidonna, c.mortitotali));
   }
-}
+} // gotSpreadsheet(colori)
+
+
+// DEFINIZIONE DELLA CLASSE OGGETTI "Oggetto"
+function Oggetto(_id, _anno, _mortiuomo, _mortidonna, _mortitotali) {
+
+  // DATI E COSTRUTTORE
+  this.id = Number(_id); // < Number() converte in numero intero la stringa
+  this.anno = _anno;
+  this.mortiuomo = Number(_mortiuomo);
+  this.mortidonna = Number(_mortidonna);
+  this.mortitotali = Number(_mortitotali);
+  //this.alpha = Number(_alpha)/100;
+  //this.forma = _forma;
+
+  this.speed = _mortiuomo/10; //random(-10,10); // < velocità di variazione su asse y
+  this.dy = 0; // variazione delta Y relativa al presente, si parte da 0
+  this.speedRot = _mortiuomo;
+
+  // FUNZIONALITA
+
+  this.muovi = function() {
+    // oscilla su asse y, velocità dipende dall'alpha
+    this.dy += this.speed;//random(-10,10);
+    if (abs(this.dy) >= height/2) {
+      this.speed *= -1;
+    }
+  } //move()
+
+  this.mostra = function() {
+    // disegna, cerchio o quadrato dipende dalla forma, colore dai dati passati
+    fill(this.mortiuomo,this.mortidonna,this.mortitotali);
+    push();
+    translate(grid + this.id * grid, height/3);//+ this.dy
+
+  //  if (ruota) {
+    //  rotate(frameCount/this.speedRot);
+    //}
+    //if (this.mortiuomo == "quadrato") {
+      rect(0, this.mortiuomo, 10, this.mortiuomo); //grid * 1.2 ultimi due parametri
+  //  } else if (this.mortidonna == "cerchio") {
+      rect(0, this.mortidonna, 20, this.mortidonna); //grid * 1.2
+    //}
+    pop();
+    noStroke();
+    fill(255);
+    textAlign(LEFT, CENTER);
+    push();
+    translate(grid + (this.id * grid),height/3);
+    rotate(PI/2);
+    //text(this.anno,0,0);
+    pop();
+
+    text(this.anno,grid + (this.id * grid),height/3);
+  } // display()
+
+} // Oggetto()
+
+
+// se ridimensiona la finestra ricalcola width e height canvas
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
