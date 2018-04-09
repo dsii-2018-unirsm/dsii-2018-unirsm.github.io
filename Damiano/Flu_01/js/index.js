@@ -27,7 +27,7 @@ function setup() {
   loadJSON(url, gotSpreadsheet, 'jsonp');   // richiedi i dati formato JSON e poi chiama la funzione gotSpreadsheet
 
   colorMode(HSB);
-  //rectMode(CENTER);
+  rectMode(CENTER);
 } // setup()
 
 
@@ -105,21 +105,31 @@ function Oggetto(_id, _anno, _mortiuomo, _mortidonna, _mortitotali) {
     //  rotate(frameCount/this.speedRot);
     //}
     //if (this.mortiuomo == "quadrato") {
-      rect(0, this.mortiuomo, 10, this.mortiuomo); //grid * 1.2 ultimi due parametri
+
   //  } else if (this.mortidonna == "cerchio") {
-      rect(0, this.mortidonna, 20, this.mortidonna); //grid * 1.2
+
     //}
+    fill(255);
+    rect(-5, this.mortitotali/2, 20, this.mortitotali);
+
+    fill(50,10,40);
+    rect(20, this.mortiuomo/2, 10, this.mortiuomo); //grid * 1.2 ultimi due parametri
+
+    fill(50,80,20);
+    rect(10, this.mortidonna/2, 10, this.mortidonna);
+     //grid * 1.2
+
     pop();
     noStroke();
     fill(255);
     textAlign(LEFT, CENTER);
     push();
-    translate(grid + (this.id * grid),height/3);
+    translate(grid + (this.id * grid),height/4);
     rotate(PI/2);
-    //text(this.anno,0,0);
+    text(this.anno,0,0);
     pop();
 
-    text(this.anno,grid + (this.id * grid),height/3);
+    //text(this.anno,grid + (this.id * grid),height/3);
   } // display()
 
 } // Oggetto()
