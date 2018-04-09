@@ -35,7 +35,7 @@ function draw() {
   // piccolo loop per verificare di avere i dati, stampa su schermo cerchi con i colori presenti nel google doc
   grid = width/(ogg.length+1);
 
-  background(0,0,21);
+  background(90,0,21);
   text("OBJECTS : " + ogg.length, 10,20); // < stampa il numero oggetti in alto a sx
 
   for (var i=0; i<ogg.length; i++) {   // (muovi e) mostra tutti gli oggetti
@@ -81,9 +81,9 @@ function Oggetto(_id, _anno, _mortiuomo, _mortidonna, _mortitotali) {
   //this.alpha = Number(_alpha)/100;
   //this.forma = _forma;
 
-  this.speed = _mortiuomo/10; //random(-10,10); // < velocità di variazione su asse y
-  this.dy = 0; // variazione delta Y relativa al presente, si parte da 0
-  this.speedRot = _mortiuomo;
+  //this.speed = _mortiuomo/10; //random(-10,10); // < velocità di variazione su asse y
+  //this.dy = 0; // variazione delta Y relativa al presente, si parte da 0
+  //this.speedRot = _mortiuomo;
 
   // FUNZIONALITA
 
@@ -99,7 +99,7 @@ function Oggetto(_id, _anno, _mortiuomo, _mortidonna, _mortitotali) {
     // disegna, cerchio o quadrato dipende dalla forma, colore dai dati passati
     fill(this.mortiuomo,this.mortidonna,this.mortitotali);
     push();
-    translate(grid + this.id * grid, height/3);//+ this.dy
+    translate(grid-50+ this.id * grid, height/3);//+ this.dy
 
   //  if (ruota) {
     //  rotate(frameCount/this.speedRot);
@@ -109,14 +109,20 @@ function Oggetto(_id, _anno, _mortiuomo, _mortidonna, _mortitotali) {
   //  } else if (this.mortidonna == "cerchio") {
 
     //}
+
     fill(255);
-    rect(-5, this.mortitotali/2, 20, this.mortitotali);
+    textAlign(LEFT, CENTER);
+    text(this.mortitotali+" "+"Morti Totali",50,50);
+    rect(-10, this.mortitotali/2, 20, this.mortitotali);
+
 
     fill(50,10,40);
-    rect(20, this.mortiuomo/2, 10, this.mortiuomo); //grid * 1.2 ultimi due parametri
+    text(this.mortiuomo+" "+"Uomini",50,30);
+    rect(15, this.mortiuomo/2, 10, this.mortiuomo); //grid * 1.2 ultimi due parametri
 
-    fill(50,80,20);
-    rect(10, this.mortidonna/2, 10, this.mortidonna);
+    fill(50,80,120);
+    text(this.mortidonna+" "+"Donne",50,10);
+    rect(5, this.mortidonna/2, 10, this.mortidonna);
      //grid * 1.2
 
     pop();
@@ -124,7 +130,7 @@ function Oggetto(_id, _anno, _mortiuomo, _mortidonna, _mortitotali) {
     fill(255);
     textAlign(LEFT, CENTER);
     push();
-    translate(grid + (this.id * grid),height/4);
+    translate(grid-50 + (this.id * grid),height/4);
     rotate(PI/2);
     text(this.anno,0,0);
     pop();
