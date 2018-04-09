@@ -57,15 +57,15 @@ function gotSpreadsheet(datiEgx) {
     var rigo = {
                   // dati, nomi delle colonne, i parametri
                   "anno": datiEgx.feed.entry[i].gsx$anno.$t,
-                  //era hue
+                  //hue
                  "mortiuomo": datiEgx.feed.entry[i].gsx$mortiuomo.$t,
                  //era saturation
                   "mortidonna": datiEgx.feed.entry[i].gsx$mortidonna.$t,
-                  //era brightness
+                  //brightness
                    "mortitotali": datiEgx.feed.entry[i].gsx$mortitotali.$t,
-                  //era alpha
+                  //alpha
                    //"mortitotali": datiEgx.feed.entry[i].gsx$mortitotali.$t,
-                  //era forma
+                  //forma
                   // "forma": datiEgx.feed.entry[i].gsx$forma.$t
               }
               console.log(rigo);
