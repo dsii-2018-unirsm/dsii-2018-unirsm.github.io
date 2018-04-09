@@ -1,2 +1,2 @@
 #**10 Print**
-![Imgur](http://i.imgur.com/HY9D5lc.png)
+![Imgur](https://drive.google.com/open?id=1FNZaytE0z8yZTiYKHBiiCjnlaXHKRVnb)
