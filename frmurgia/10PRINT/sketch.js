@@ -28,10 +28,10 @@ aggiungere un bottone play/stop
 var monoSynth;
 var osc; // creo un oscillatore
 var playing = false; // condizione di play inizialmente falsa
-var button;
+
 
 function setup() {
-button=createButton("play");
+
 
 createCanvas(windowWidth, windowHeight);
 
