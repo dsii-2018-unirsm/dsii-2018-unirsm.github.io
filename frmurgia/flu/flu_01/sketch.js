@@ -60,12 +60,12 @@ function draw() {
 
   textFont('IBM Plex Mono');
   textStyle(NORMAL);
-  textSize(32);
+  textSize(14);
   var s = 'Decessi per influenza';
   fill(190);
   text(s, 100, windowHeight/3, 500, 200);
   text('Lombardia',windowWidth/3+windowWidth/2, 300, 500, 200);
-  textSize(32);
+  textSize(14);
   var s = 'Persone residenti';
   fill(0);
   text(s, 100, (windowHeight/3)+(windowHeight/3), 500, 200);

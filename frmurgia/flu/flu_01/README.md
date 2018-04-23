@@ -1,5 +1,5 @@
 # flu 
- [launch / open]( http://dsii-2018-unirsm.github.io/frmurgia/flu/flu_01)
+ # [launch / open]( http://dsii-2018-unirsm.github.io/frmurgia/flu/flu_01)
               
 
 
