@@ -1,13 +1,12 @@
 var unit = 0;
 var count;
 var mods = [];
-var rot;
-var rots;
+var state;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   unit = 30;
-  rot = PI;
+  state = 1;
   noLoop();
 }
 
@@ -21,9 +20,8 @@ function draw() {
   var index = 0;
   for (var y = 0; y < highCount; y++) {
     for (var x = 0; x < wideCount; x++) {
-      rots = [PI/2, -PI/2];
-      rot = random (rots);
-      mods[index++] = new Module(x*unit, y*unit, unit/2, unit/2, unit, rot);
+      state = int(random(2));
+      mods[index++] = new Module(x*unit, y*unit, unit/2, unit/2, unit, state);
     }
   }
   for (var i = 0; i < count; i++) {
@@ -31,7 +29,7 @@ function draw() {
   }
 }
 
-function Module(_xOff, _yOff, _x, _y, _unit, _rot) {
+function Module(_xOff, _yOff, _x, _y, _unit, _state) {
   this.xOff = _xOff;
   this.yOff = _yOff;
   this.x = _x;
@@ -39,14 +37,21 @@ function Module(_xOff, _yOff, _x, _y, _unit, _rot) {
   this.unit = _unit;
   this.xDir = 1;
   this.yDir = 1;
-  this.rot = Number(_rot);
+  this.state = _state;
 }
 
 Module.prototype.draw = function() {
   noFill();
   strokeWeight(2);
-  arc(this.xOff + this.x, this.yOff + this.y, unit, unit, this.rot-this.rot, this.rot);
-  arc(this.xOff + this.x, this.yOff + this.y, unit, unit, -this.rot*2, -this.rot);
+  if (this.state) {
+    arc(this.xOff, this.yOff, unit, unit, 0, HALF_PI);
+    arc(this.xOff+unit, this.yOff+unit, unit, unit, PI, PI+HALF_PI);
+  } else {
+    arc(this.xOff+unit, this.yOff, unit, unit, HALF_PI, PI );
+    arc(this.xOff, this.yOff+unit, unit, unit, PI+HALF_PI, 2*PI);
+  }
+
+
 }
 
 function mousePressed() {
