@@ -6,3 +6,7 @@
 
 
 ![Alt text](https://github.com/frmurgia/dsii-2018-unirsm.github.io/blob/master/frmurgia/Random%20word/Random%20Text/anteprima%20b:W.png?raw=true)
+
+
+by frmurgia © 2017-18 MIT License
+DSII2018 Lab @UNIRSM
