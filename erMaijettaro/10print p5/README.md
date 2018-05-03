@@ -5,6 +5,9 @@
 
 Il progetto parte da una base di [*pattern 1*](https://www.openprocessing.org/sketch/265189) poi riadattata in p5
 
+![Imgur](https://imgur.com/ouKbfft.png)
+>1.2
+
 ![Imgur](https://imgur.com/IqHEdo5.png)
 >1.2
 
@@ -17,6 +20,5 @@ Il progetto parte da una base di [*pattern 1*](https://www.openprocessing.org/sk
 ![Imgur](https://imgur.com/wIN4HGq.png)
 >1.2
 
-![Imgur](https://imgur.com/ouKbfft.png)
->1.2
+
 
