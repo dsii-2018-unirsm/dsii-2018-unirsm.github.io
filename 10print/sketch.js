@@ -39,7 +39,8 @@ function draw() {
   }
 
   if (y > 857){
-    noLoop(); // stop the loop
+  //  noLoop(); // stop the loop
+  y = 520; // the original starting point
   }
 }
 
@@ -47,7 +48,3 @@ function draw() {
 // capire come evitare che le caselline bianche si affianchino
 // quando appare una cella bianca allora quella seguente e quella rispettiva nel rigo sotto, non potranno essere bianche
 // e al posto della bianca va inserito un altro colore, a caso fra rosso e blu
-
-// centrare il libro all'interno della pagina website
-
-// ripetere l'animazione in loop
