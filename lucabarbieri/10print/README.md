@@ -1,5 +1,5 @@
 # John Maeda, Le leggi della semplicità - Animated book 
- # [launch / open]( http://dsii-2018-unirsm.github.io/lucabarbieri/10print/index.html)
+ # [launch / open]( http://dsii-2018-unirsm.github.io/lucabarbieri/10print/animated_book.html)
              
 
 Variazione significativa di 10 print    
