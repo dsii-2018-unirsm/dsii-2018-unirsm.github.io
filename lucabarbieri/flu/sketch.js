@@ -21,7 +21,7 @@ var url = "https://spreadsheets.google.com/feeds/list/1KnslfmMhYANBw8QaN2O1omywy
 var ogg = []; // < array di oggetti/classi
 var grid = 0;
 var ruota = true;
-
+var anno = 0;
 
 function setup() {
   pixelDensity(displayDensity());
@@ -35,16 +35,17 @@ function setup() {
 
 
 function draw() {
+
   // piccolo loop per verificare di avere i dati, stampa su schermo cerchi con i colori presenti nel google doc
-  grid = width/(ogg.length+1);
+  grid = width/((ogg.length/2)+1);
 
-  background(255);
-  // text("OBJECTS : " + ogg.length, 10,20); // < stampa il numero oggetti in alto a sx
+  background(100);
+  text("INFLUENCE-ASSOCIATED PEDIATRIC MORTALITY : " + anno, grid, grid); // stampa il numero oggetti in alto a sx
 
-  for (var i=0; i<ogg.length; i++) {   // mostra tutti gli oggetti
+  for (var i=0; i<(ogg.length/2); i++) {   // mostra tutti gli oggetti relativi al primo anno
     ogg[i].mostra();
   }
-} // draw()
+}
 
 
 function gotSpreadsheet(colori) {
@@ -61,7 +62,10 @@ function gotSpreadsheet(colori) {
     console.log(c); // < debug, verifica oggetto 1x1
     // e ora generiamo un nuovo oggetto classe "Oggetto"
     ogg.push(new Oggetto(i, c.dimensione, c.colore, c.anno, c.complicazione));
+
+    anno = c.anno; // segna la variabile dell'ultimo anno identificato
   }
+  anno = anno -1 + ogg.length/10;
 } // gotSpreadsheet(colori)
 
 
@@ -78,8 +82,6 @@ function Oggetto(_id, _dimensione, _colore, _anno, _complicazione) {
   //this.speed = _dimensione/200; //random(-10,10); // < velocità di variazione su asse y
   this.dy = 0; // variazione delta Y relativa al presente, si parte da 0
   this.speedRot = _dimensione;
-
-  // FUNZIONALITA
 
   this.mostra = function() {
     // disegna un quadrato con velocità differente e colore diverso
@@ -102,9 +104,11 @@ function Oggetto(_id, _dimensione, _colore, _anno, _complicazione) {
     translate(grid + (this.id * grid),height/3);
     rotate(PI/2);
     text(this.complicazione,0,0);
+    rotate(-PI/2);
+    text(this.dimensione,-5,grid);
     pop();
 
-    //text(this.colore,grid + (this.id * grid),height/3);
+    // text(this.colore,grid + (this.complicazione * grid),height/3); // scrive a schermo il colore del dato
   } // display()
 
 } // Oggetto()
@@ -116,7 +120,10 @@ function windowResized() {
 }
 
 // implementazioni future
-// rendere visibile l'anno di riferimento
+// si deve fermare a contare i dati per ogni anno (0-9 elementi) OK
+// inserire un titolo OK
+// rendere visibile l'anno di riferimento OK
 // completare i dati relativi agli altri anni (fino al 2004-05)
 // sceglire se mostrare dati differenti con diversi colori
 // mettere un testo che spiega il numero totale di complicazioni rispetto quello generale di morti
+// ad ogni giro completo della linea rossa viene incrementato il numero di morti fino ad arrivare a quello effettivo
