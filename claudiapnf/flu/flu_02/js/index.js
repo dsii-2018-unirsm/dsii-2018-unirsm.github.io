@@ -12,14 +12,13 @@
 // carica google spreadsheets
 var url = "https://spreadsheets.google.com/feeds/list/1tYW41gVKEKVLqQqhA9fMm8k5c9b6fuaOfKrtQ0qxrLY/od6/public/values?alt=json";
 
-var ogg = []; // < array di oggetti/classi
+var ogg = []; // < array di oggetti
 var grid = 0;
 
 function setup() {
   pixelDensity(displayDensity());
   createCanvas(windowWidth, windowHeight);
   var cnv = createCanvas(windowWidth, windowHeight);
-  // richiedi i dati formato JSON e poi chiama la funzione gotSpreadsheet
   loadJSON(url, gotSpreadsheet, 'jsonp');
   colorMode(RGB);
   rectMode(CENTER);
@@ -29,50 +28,63 @@ function setup() {
 function draw() {
   grid = width/(ogg.length+1);
   background(200);
-  //text("OBJECTS : " + ogg.length, 10,20); // < stampa il numero oggetti in alto a sx
-
-  for (var i=0; i<ogg.length; i++) {   // (muovi e) mostra tutti gli oggetti
+  for (var i=0; i<ogg.length; i++) {
     ogg[i].mostra();
   }
 }
 
 function gotSpreadsheet(totale) { //(totale) indica il nome del foglio spreedsheet, poteva chiamarsi pippo
-  console.log(totale.feed.entry.length); // < debug, numero righe della tabella
-  for (var i = 0; i < totale.feed.entry.length; i++) {
-    // costruzione dell'oggetto singolo, la riga
+  for (var i = 0; i < totale.feed.entry[i].gsx$anno.$t; i++) {
     var c = {
                   // dati, nomi delle colonne, i parametri
-                  // feed significa "prendi i dati nelle caselle"
-                  //"totale": totale.feed.entry[i].gsx$totale.$t, //totale = pippo
-                  //"donne": totale.feed.entry[i].gsx$donne.$t, //totale = pippo
-                  "uomini": totale.feed.entry[i].gsx$uomini.$t //totale = pippo
+                  "uomini": totale.feed.entry[i].gsx$uomini.$t,
+                  "donne": totale.feed.entry[i].gsx$donne.$t,
+                  "anno":totale.feed.entry[i].gsx$anno.$t
               }
-    console.log(c); // < debug, verifica oggetto 1x1
-    // e ora generiamo un nuovo oggetto classe "Oggetto"
-    ogg.push(new Oggetto(i,c.uomini));
+    ogg.push(new Oggetto(i,c.uomini, c.donne, c.anno));
   }
 }
 
 // DEFINIZIONE DELLA CLASSE OGGETTI "Oggetto"
-function Oggetto(_id, _totale, _donne, _uomini) {
+function Oggetto(_id, _uomini,_donne,_anno) {
 
   // DATI E COSTRUTTORE
   this.id = Number(_id); // < Number() converte in numero intero la stringa
 //this.totale = _totale;
-//this.donne = Number(_donne)/10;
-  this.uomini = Number(_uomini);
+this.uomini = Number(_uomini);
+this.donne = Number(_donne);
+this.anno = Number(_anno);
 
 
   // FUNZIONALITA
 
   this.mostra = function() {
-    noStroke();
-    fill(255);
     push();
+    //centra rispetto alla pagina
     translate(grid + this.id * grid, height/2);
-    fill(50);
-    ellipse(0, 0, 10,10);
-    ellipseMode(CENTER);
+    for(var i = 0; i < this.donne; i++){
+      fill(255,0,0);
+      noStroke();
+      ellipse(random(-25,25), random(200)-150, 3,3);
+    }
+    noLoop();
+    for(var i = 0; i < this.uomini; i++){
+      fill(0,0,255);
+      noStroke();
+      ellipse(random(-25,25), random(200)-150, 3,3);
+    }
+
+    //ellipseMode(CENTER);
+
+    //testo
+    noStroke();
+    fill(0);
+    textAlign(CENTER);
+    translate(0,80);
+    text(this.anno,0,0);
+    text("donne: "+this.donne,0,20);
+    text("uomini: "+ this.uomini,0,40);
+    pop();
  }
 
 
