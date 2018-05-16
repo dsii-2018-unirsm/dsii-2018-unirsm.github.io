@@ -2,6 +2,12 @@
 
 ![Imgur](https://imgur.com/EqOKAdF.jpg)
 
+# IL QUADRO DELLA SITUAZIONE - Making Visible
+
+Il Quadro della Situazione è un modulo comunicativo facilmente riprogrammabile, che rappresenta, tramite illuminazione e vibrazione, un dato trovato sul web. L'associazione di più moduli crea una composizione che racconta le scelte e gli interessi degli utenti web. L'utente dentro di sè ricalibra la propria percezione dell'informazione pubblica.
+
+![Imgur](https://i.imgur.com/01ivCpX.jpg)  
+
 
 
 # P5 is in the house - 10print
