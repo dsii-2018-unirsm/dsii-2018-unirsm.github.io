@@ -2,7 +2,7 @@
 //   https://earthquake.usgs.gov/fdsnws/event/1/#methods
 var data;
 
-var news= 'calcio'
+var news= 'arte'
 
 
 
@@ -16,7 +16,7 @@ var news= 'calcio'
 function preload() {
   // Get the most recent earthquake in the database
   var url =
-      'https://newsapi.org/v2/everything?q=calcio&sources=ansa&apiKey=2a45165c1efc458eb2bb251e241f0b51';
+      'https://newsapi.org/v2/everything?q='+news+'&sources=ansa&apiKey=2a45165c1efc458eb2bb251e241f0b51';
 
 
 
