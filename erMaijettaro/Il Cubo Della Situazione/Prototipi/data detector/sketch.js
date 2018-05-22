@@ -14,8 +14,16 @@ var data3;
 var fonte='ansa'
 
 var news1= 'arte'
-var news2= 'calco'
+var news2= 'calcio'
 var news3= 'siria'
+
+var giorno='22'
+var mese='05'
+var anno='2018'
+
+var scala=0.1
+
+
 
 var lucedata1, lucedata2, lucedata3;
 var titdata1, titdata2, titdata3;
@@ -26,9 +34,9 @@ var lucedata1_new, lucedata1_old;
 
 function preload() {
 
-  var url1 = 'https://newsapi.org/v2/everything?q='+news1+'&sources='+fonte+'&apiKey=2a45165c1efc458eb2bb251e241f0b51';
-  var url2 = 'https://newsapi.org/v2/everything?q='+news2+'&sources='+fonte+'&apiKey=2a45165c1efc458eb2bb251e241f0b51';
-  var url3 = 'https://newsapi.org/v2/everything?q='+news3+'&sources='+fonte+'&apiKey=2a45165c1efc458eb2bb251e241f0b51';
+  var url1 = 'https://newsapi.org/v2/everything?q='+news1+'&sources='+fonte+'&from='+anno+'-'+mese+'-'+giorno+'&apiKey=2a45165c1efc458eb2bb251e241f0b51';
+  var url2 = 'https://newsapi.org/v2/everything?q='+news2+'&sources='+fonte+'&from='+anno+'-'+mese+'-'+giorno+'&apiKey=2a45165c1efc458eb2bb251e241f0b51';
+    var url3 = 'https://newsapi.org/v2/everything?q='+news3+'&sources='+fonte+'&from='+anno+'-'+mese+'-'+giorno+'&apiKey=2a45165c1efc458eb2bb251e241f0b51';
 
   data1 = loadJSON(url1);
   data2 = loadJSON(url2);
@@ -81,8 +89,8 @@ var c=1200;
 
 
   text ('pubblicato il: '+ oradata1,  a,200);
-  text ('pubblicato il: '+ descdata1, a,300);
-  text ('sottotitolo: '+ titdata1, a,250);
+  text ('sottotitolo: '+ descdata1, a,300);
+  text ('titolo: '+ titdata1, a,250);
   text ('il numero delle notizie trovate è: '+ lucedata1, a,350);
 
   text ('pubblicato il: '+ oradata2, b,200);
@@ -103,9 +111,9 @@ var c=1200;
 
 
   fill(255);
-  rect (a-100,600, 200, -lucedata1/10); // map(x, 0, 1000, 0, 100)
-  rect (b-100,600, 200, -lucedata2/10);
-  rect (c-100,600, 200, -lucedata3/10 );
+  rect (a-100,600, 200, -lucedata1/scala); // map(x, 0, 1000, 0, 100)
+  rect (b-100,600, 200, -lucedata2/scala);
+  rect (c-100,600, 200, -lucedata3/scala );
 
 
 
