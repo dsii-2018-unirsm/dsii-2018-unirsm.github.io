@@ -55,7 +55,7 @@ strokeWeight(2);
   noStroke();
 
 textAlign(CENTER);
-textSize(10);
+textSize(20);
 fill(150);
 text("0",windowWidth/30,windowHeight/3);
 
@@ -165,6 +165,20 @@ var x1 = ceil(map(mouseX, 0, width, 0, 28, true));
 textSize(20);
 text(x1, mouseX, mouseY);
 textSize(20);*/
+
+
+
+
+var ddd=windowWidth/55
+var x3 = ceil(map(mouseX, 0, width, 0, 28, true));
+  if (mouseY>windowHeight/5*4){
+fill('rgba(0,0,0, 0.25)');
+ellipse(windowWidth/28*x3-ddd,windowHeight-105, 50,50 );}
+else{
+  noFill();
+  ellipse(windowWidth/28*x3-ddd,windowHeight-105, 50,50 );} 
+
+
 
 }  //gli ho provato a dire che se premo 'a' fammi diventare i=18 ma non funziona per come l'ho fatto io
 
