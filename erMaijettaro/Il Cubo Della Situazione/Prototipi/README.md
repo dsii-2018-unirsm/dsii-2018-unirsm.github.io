@@ -1,5 +1,8 @@
 # IL QUADRO DELLA SITUAZIONE - prototipi
 
+![Imgur](https://imgur.com/1jctNpZ.png)  
+>iQdS P2 180528
+
 
 ![Imgur](https://imgur.com/sjqfeyY.png)  
 >iQdS P1 180527
