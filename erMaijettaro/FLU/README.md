@@ -10,28 +10,28 @@ Il grafico si basa sui dati certificati dal [*Ministero della Salute italiano*](
 >
 
 ![Imgur](https://imgur.com/Pm8a0ET.png)
-> 2.0
+> versione 2.0
 >
 ![Imgur](https://imgur.com/WRuWDHB.png)
-> 2.0
+> versione 2.0
 >
 ![Imgur](https://imgur.com/p5xl5w4.png)
-> 2.0
+> versione 2.0
 >
 ![Imgur](https://imgur.com/0eaJvob.png)
-> 2.0
+> versione 2.0
 >
 
 
 
 ![Imgur](https://imgur.com/doVFpMr.png)
-> 1.0
+> versione 1.0
 >
 
 ![Imgur](https://imgur.com/H5AXRMA.png)
-> concept
+> illustrazione concept
 >
 
 ![Imgur](https://imgur.com/7WNW4m1.png)
-> concept
+> illustrazione concept
 >
