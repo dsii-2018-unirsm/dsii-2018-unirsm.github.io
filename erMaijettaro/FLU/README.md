@@ -9,14 +9,29 @@ Il grafico si basa sui dati certificati dal [*Ministero della Salute italiano*](
 > dati presi da Google Sheet
 >
 
+![Imgur](https://imgur.com/Pm8a0ET.png)
+> 2.0
+>
+![Imgur](https://imgur.com/WRuWDHB.png)
+> 2.0
+>
+![Imgur](https://imgur.com/p5xl5w4.png)
+> 2.0
+>
+![Imgur](https://imgur.com/0eaJvob.png)
+> 2.0
+>
+
+
+
 ![Imgur](https://imgur.com/doVFpMr.png)
-> com'è
+> 1.0
 >
 
 ![Imgur](https://imgur.com/H5AXRMA.png)
-> come sarà
+> concept
 >
 
 ![Imgur](https://imgur.com/7WNW4m1.png)
-> come sarà
+> concept
 >
