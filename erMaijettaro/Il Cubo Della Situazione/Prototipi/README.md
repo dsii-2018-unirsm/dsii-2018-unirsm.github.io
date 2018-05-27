@@ -1,7 +1,7 @@
 # IL QUADRO DELLA SITUAZIONE - prototipo 
 
 
-![Imgur](https://imgur.com/rY1n9VG.png)  
+![Imgur](https://imgur.com/sjqfeyY.png)  
 >iQdS P1 180527
 
 ![Imgur](https://imgur.com/QDavqTQ.png)  
