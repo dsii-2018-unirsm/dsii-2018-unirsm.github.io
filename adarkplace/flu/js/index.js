@@ -71,14 +71,14 @@ function showMore(){
   textAlign(LEFT);
   fill(50);
   textSize(12);
-  var disp = -60;
+  var disp = -70;
 
   fill(0);
-  text('anno', (width/4)-100, (height/2)-74);
+  text('anno', (width/4)-100, (height/2)-86);
   fill(130);
-  text('malati', (width/4)-50, (height/2)-74);
+  text('malati', (width/4)-50, (height/2)-86);
   fill(255,000,000);
-  text('morti', (width/4), (height/2)-74);
+  text('morti', (width/4), (height/2)-86);
 
   for (var i = 0; i < data.length; i++) {
     fill(0);
@@ -87,7 +87,7 @@ function showMore(){
     text(data[i]['malati'], (width/4)-50, (height/2)+disp);
     fill(255,0,0);
     text(data[i]['morti'], (width/4), (height/2)+disp);
-    disp = disp + 14;
+    disp = disp + 16;
   }
 }
 
