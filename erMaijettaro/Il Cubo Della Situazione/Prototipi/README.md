@@ -1,5 +1,5 @@
 # IL QUADRO DELLA SITUAZIONE - prototipi
-
+**[launch / open](http://dsii-2018-unirsm.github.io/erMaijettaro/FLU/)**
 ![Imgur](https://imgur.com/1jctNpZ.png)  
 >iQdS P2 180528
 
