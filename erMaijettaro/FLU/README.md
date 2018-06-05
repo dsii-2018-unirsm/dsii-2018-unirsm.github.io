@@ -1,5 +1,5 @@
 # Influenza: campioni positivi 2015/2016
-**[launch / open](http://dsii-2018-unirsm.github.io/erMaijettaro/FLU/Flu_0/)**
+**[launch / open](http://dsii-2018-unirsm.github.io/erMaijettaro/FLU/Flu 0/)**
 **by @erMaijettaro © 2017 MIT License**
 **DSII2018 Lab @UNIRSM** [**+**](http://dsii-2018-unirsm.github.io)
 
