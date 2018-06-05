@@ -11,29 +11,30 @@
 //variabili in uso
 var a;
 var count;
+//creo un array in cui inserire di quadrati
 var array = [];
 
-//griglia
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  //dimensioni griglia
   a = 150;
-  var highCount = (height/150)+2;
-  var wideCount = (width/150)+2;
+  var highCount = (height/100)+2;
+  var wideCount = (width/100)+2;
   count = int(highCount * wideCount);
 
-  var index = 0;
+  var i = 0;
+  //xc cordinata x di count
   for (var xc = 0; xc < wideCount; xc++) {
     for (var yc = 0; yc < highCount; yc++) {
-      array[index++] = new Module(int(xc)*a,int(yc)*a);
+      array[i++] = new Module(int(xc)*a,int(yc)*a);
     }
    }
 }
 
 function draw() {
-  //background(200);
   noStroke();
   for (var i = 0; i <= count; i++) {
-    array[i].draw2();
+    array[i].drawShape();
     array[i].Over();
   }
 }
@@ -57,24 +58,36 @@ function Module(_x, _y) {
   this.b = false;
   this.c = 200;
   this.isOverRectangle = false;
+  // k conta i click
   this.k = 0;
+  //grandezza dei quadrati
   this.s = 75;
   this.r = 0;
+  //colori di riempimento per ogni click "aggiuntivo"
   this.c1 = '#222222';
   this.c2 = '#D1D3D3';
+  //scala di grigi
+  // this.c3 = '#B2B2B2';
+  // this.c4 = '#939393';
+
+
 }
 
-//Module.prototype.Pressed = function() {
-//    if (mouseX>(this.x)-(this.s) && mouseX<(this.x)+(this.s) && mouseY>(this.y)-(this.s) && mouseY<(this.y)+(this.s)){
-//      this.k = this.k+1;
-//      if (this.k === 8) {
-//        this.k = 0;
-//      }
-//    }
-//}
+Module.prototype.Pressed = function() {
+  //area dei quadrati
+   if (mouseX>(this.x)-(this.s) && mouseX<(this.x)+(this.s) && mouseY>(this.y)-(this.s) && mouseY<(this.y)+(this.s)){
+     //aumenta i click di uno
+     this.k = this.k+1;
+     //click no più di 5 volte
+     if (this.k === 5) {
+       this.k = 0;
+     }
+   }
+}
 
 Module.prototype.Typed = function() {
     if (mouseX>(this.x)-(this.s) && mouseX<(this.x)+(this.s) && mouseY>(this.y)-(this.s) && mouseY<(this.y)+(this.s)){
+      //ruota di p greco mezzi
       this.r = this.r+HALF_PI;
     }
 }
@@ -88,7 +101,7 @@ Module.prototype.Over = function() {
 }
 
 
-Module.prototype.draw2 = function() {
+Module.prototype.drawShape = function() {
   push();
   translate(this.x, this.y);
   rectMode(CENTER);
@@ -104,14 +117,14 @@ Module.prototype.draw2 = function() {
     arc(this.s, 0, this.s*2, this.s*2, HALF_PI, -HALF_PI);
     //triangle(0,0,this.s,-this.s,this.s,this.s);
   }
+  // if (this.k === 2){
+  //   fill(this.c1);
+  //   rect(0,0,this.s*2,this.s*2);
+  //   fill(this.c3);
+  //   arc(this.s, this.s, this.s*4, this.s*4, PI, -HALF_PI);
+  //   //triangle(this.s,-this.s,this.s,this.s,-this.s,this.s);
+  // }
   if (this.k === 2){
-    fill(this.c1);
-    rect(0,0,this.s*2,this.s*2);
-    fill(this.c2);
-    arc(this.s, this.s, this.s*4, this.s*4, PI, -HALF_PI);
-    //triangle(this.s,-this.s,this.s,this.s,-this.s,this.s);
-  }
-  if (this.k === 3){
     fill(this.c1);
     rect(0,0,this.s*2,this.s*2);
     fill(this.c2);
@@ -120,33 +133,35 @@ Module.prototype.draw2 = function() {
     //triangle(0,0,this.s,-this.s,this.s,this.s);
     //triangle(0,0,-this.s,-this.s,-this.s,this.s);
   }
+  if (this.k === 3){
+    fill(this.c1);
+    rect(0,0,this.s*2,this.s*2);
+    fill(this.c2);
+  //   arc(this.s, 0, this.s*2, this.s*2, HALF_PI, -HALF_PI);
+  //   arc(-this.s, 0, this.s*2, this.s*2, -HALF_PI, HALF_PI);
+  //   //triangle(this.s,-this.s,this.s,this.s,-this.s,this.s);
+  //   //triangle(this.s,this.s,-this.s,this.s,-this.s,-this.s);
+  triangle(0,0,this.s,-this.s,this.s,this.s);
+  triangle(0,0,-this.s,-this.s,-this.s,this.s);
+  }
   if (this.k === 4){
-    fill(this.c2);
-    rect(0,0,this.s*2,this.s*2);
     fill(this.c1);
-    arc(this.s, 0, this.s*2, this.s*2, HALF_PI, -HALF_PI);
-    arc(-this.s, 0, this.s*2, this.s*2, -HALF_PI, HALF_PI);
-    //triangle(this.s,-this.s,this.s,this.s,-this.s,this.s);
-    //triangle(this.s,this.s,-this.s,this.s,-this.s,-this.s);
+    rect(0,0,this.s*2,this.s*2);
+    fill(this.c2);
+    // arc(this.s, this.s, this.s*4, this.s*4, PI, -HALF_PI);
+    triangle(this.s,-this.s,this.s,this.s,-this.s,this.s);
   }
+  // if (this.k === 4){
+  //   fill(this.c1);
+  //   rect(0,0,this.s*2,this.s*2);
+  //   fill(this.c6);
+  //   arc(this.s, 0, this.s*2, this.s*2, HALF_PI, -HALF_PI);
+  //   //triangle(0,0,this.s,-this.s,this.s,this.s);
+  // }
   if (this.k === 5){
-    fill(this.c2);
-    rect(0,0,this.s*2,this.s*2);
-    fill(this.c1);
-    arc(this.s, this.s, this.s*4, this.s*4, PI, -HALF_PI);
-    //triangle(this.s,-this.s,this.s,this.s,-this.s,this.s);
-  }
-  if (this.k === 6){
-    fill(this.c2);
-    rect(0,0,this.s*2,this.s*2);
-    fill(this.c1);
-    arc(this.s, 0, this.s*2, this.s*2, HALF_PI, -HALF_PI);
-    //triangle(0,0,this.s,-this.s,this.s,this.s);
-  }
-  if (this.k === 7){
     fill(this.c1);
     rect(0,0,this.s*2,this.s*2);
-    fill(this.c2);
+    fill(this.c1);
     rect(0,0,this.s*2,this.s*2);
   }
 
@@ -163,7 +178,7 @@ Module.prototype.draw2 = function() {
 }
 
 
-//responsive
+//adatta alla window
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
