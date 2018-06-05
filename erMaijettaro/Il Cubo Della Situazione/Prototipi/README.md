@@ -1,5 +1,5 @@
 # IL QUADRO DELLA SITUAZIONE - prototipi
-**[launch / open](dsii-2018-unirsm.github.io/erMaijettaro/Il Cubo Della Situazione/Prototipi/iQdS_P2/)**
+**[launch / open](dsii-2018-unirsm.github.io/erMaijettaro/Il Cubo Della Situazione/Prototipi)**
 ![Imgur](https://imgur.com/1jctNpZ.png)  
 >iQdS P2 180528
 
