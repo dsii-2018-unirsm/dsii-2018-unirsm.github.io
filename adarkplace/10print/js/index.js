@@ -5,7 +5,7 @@ var state;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  unit = 30;
+  unit = 40;
   state = 1;
   noLoop();
 }
