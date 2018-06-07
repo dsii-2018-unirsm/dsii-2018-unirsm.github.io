@@ -1,6 +1,7 @@
 var counter = 0;
 var crossRotation = true;
 var rot = 0;
+var maxMalati = 0;
 
 var url = "https://spreadsheets.google.com/feeds/list/1CR86l9J8QeS28C27IvnzCShiwfr4s9IujoF8gU0B-XQ/od6/public/values?alt=json";
 var data = [];
@@ -11,14 +12,12 @@ function setup() {
   colorMode(RGB);
   rectMode(CENTER);
   noStroke();
-
   loadJSON(url, gotSpreadsheet, 'jsonp');
 }
 
 
 function draw() {
   background(240);
-
   textAlign(RIGHT);
   textStyle(BOLD);
   textSize(height+ ((height/100)*40));
@@ -41,7 +40,9 @@ function gotSpreadsheet(chart) {
                   "morti": chart.feed.entry[i].gsx$morti.$t,
               }
     data.push(c);
+    if (data[i]['morti']> maxMalati) maxMalati= data[i]['morti'];
   }
+  console.log(maxMalati);
 }
 
 
@@ -71,22 +72,29 @@ function showMore(){
   textAlign(LEFT);
   fill(50);
   textSize(12);
-  var disp = -70;
+  var disp = -92;
+  var startY = (width/5);
 
   fill(0);
-  text('anno', (width/4)-100, (height/2)-86);
+  text('anno', startY-100, (height/2)-108);
   fill(130);
-  text('malati', (width/4)-50, (height/2)-86);
+  text('malati', startY-50, (height/2)-108);
   fill(255,000,000);
-  text('morti', (width/4), (height/2)-86);
+  text('morti', startY, (height/2)-108);
 
   for (var i = 0; i < data.length; i++) {
     fill(0);
-    text(data[i]['anno'], (width/4)-100, (height/2)+disp);
+    text(data[i]['anno'], startY-100, (height/2)+disp);
     fill(130);
-    text(data[i]['malati'], (width/4)-50, (height/2)+disp);
+    text(data[i]['malati'], startY-50, (height/2)+disp);
     fill(255,0,0);
-    text(data[i]['morti'], (width/4), (height/2)+disp);
+    text(data[i]['morti'], startY, (height/2)+disp);
+    push();
+    rectMode(CORNER);
+    var barraMax = width - (startY+50)-startY;
+    var barra = map(data[i]['morti'], 0, maxMalati, startY+50, barraMax);
+    rect(startY+50, (height/2)+disp-5, barra, 2);
+    pop();
     disp = disp + 16;
   }
 }
