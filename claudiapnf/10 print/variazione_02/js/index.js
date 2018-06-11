@@ -2,10 +2,9 @@
 //10 PRINT PORTING TO P5
 //by @claudiapnf© 2018 MIT License
 //DSII2018 Lab @UNIRSM website
-//fork from purin.co
 
 //"The morphing of the maze from complex to simple (or at least understandable) is part of
-//the Commodore 64 user's ideal encounter with 10print", but the user is more like the creator
+//the Commodore 64 user's ideal encounter with 10print, but the user is more like the creator
 //of the maze than its explorer" 10 PRINT, cap.20, p.37
 
 //variabili in uso
