@@ -11,6 +11,29 @@ var windDirection;
 var maxHum = 100;
 var hum;
 var snow, cloud_1, cloud_2, cloud_snow, cloud_sun;
+var mappaimg;
+var xpos, ypos;
+var lerpX, lerpY, lerpWind,lerpHum, lerpTemp;
+var coordinates = [
+    [-103,984],
+    [-64,817],
+    [-25,657],
+    [-10,598],
+    [0,547],
+    [4,528],
+    [24,523],
+    [28,517],
+    [50,506],
+    [55,488],
+    [122,276],
+    [144,210],
+    [154,176],
+    [176,90],
+    [186,73],
+    [219,-26],
+    [260,-150],
+];
+
 
 function preload(){
   loadJSON(url, gotSpreadsheet, 'jsonp');
@@ -24,16 +47,38 @@ function preload(){
   cloud_sun = loadImage('img/cloud_sun.png');
   cloud_snow = loadImage('img/cloud_snow.png');
   myFont= loadFont('src/FF_DIN_Pro_Medium_Italic.otf');
+
+  mappaimg = loadImage('img/antarctica_3-02.png');
 }
 
 function setup() {
   pixelDensity(displayDensity());
   createCanvas(windowWidth, windowHeight);
   textFont(myFont);
+
+  xpos = coordinates[counter][0] + (width/2);
+  ypos = coordinates[counter][1] + (height/2);
+  lerpX = xpos;
+  lerpY = ypos;
+  lerpWind = 0;
+  lerpHum = 10;
+  lerpTemp = color(0, 113, 188);
+
 }
 
 function draw() {
-  background (240);
+
+  xpos = coordinates[counter][0] + (width/2);
+  ypos = coordinates[counter][1] + (height/2);
+
+  lerpX = lerp (lerpX, xpos, 0.08);
+  lerpY = lerp (lerpY, ypos, 0.08);
+
+  push();
+  imageMode(CENTER);
+  image(mappaimg,lerpX,lerpY);
+  pop();
+
   translate( width/2, height/2);
   ellipseMode(RADIUS);
 
@@ -146,7 +191,9 @@ function draw() {
   text (data[counter]['temp8am']+'°',86,-55);
   noFill();
   ellipse(86, -92, 12, 12);
-  fill (Rcolor, Gcolor, Bcolor);
+  tempTemp = color (Rcolor, Gcolor, Bcolor);
+  lerpTemp = lerpColor (lerpTemp, tempTemp, 0.1);
+  fill (lerpTemp);
   noStroke ();
   ellipse(86, -92, 10, 10);
   pop();
@@ -167,7 +214,8 @@ function draw() {
   ellipse(154, -92, 12, 12);
   noStroke ();
   fill (0,113,188);
-  ellipse(154, -92, hum, hum);
+  lerpHum = lerp (lerpHum, hum, 0.1);
+  ellipse(154, -92, lerpHum, lerpHum);
   pop();
 
   push();
@@ -194,7 +242,8 @@ function draw() {
   text (data[counter]['windDir8am'],120,8);
   push();
   translate(120,-25);
-  rotate (windDirection);
+  lerpWind = lerp (lerpWind,windDirection, 0.1);
+  rotate (lerpWind);
   image(arrowWind,-10, -10, 20, 20);
   pop();
 
@@ -281,6 +330,7 @@ function gotSpreadsheet(chart) {
 
   }
   counter = data.length-1;
+
 }
 
 function mouseClicked() {
