@@ -73,35 +73,53 @@ var indice = 1;
 // }
 
 //------------------------------POPUP
+var popupcontent1 = "<img src='img/marker1.jpg' width='139px'/>";
+var popupcontent2 = "<img src='img/marker2.jpg' width='139px'/>";
+var popupcontent3 = "<img src='img/marker3.jpg' width='139px'/>";
+var popupcontent4 = "<img src='img/marker4.jpg' width='139px'/>";
+var popupcontent5 = "<img src='img/marker5.jpg' width='139px'/>";
+var popupcontent6 = "<img src='img/marker6.jpg' width='139px'/>";
+var popupcontent7 = "<img src='img/marker7.jpg' width='139px'/>";
+var popupcontent8 = "<img src='img/marker8.jpg' width='139px'/>";
+var popupcontent9 = "<img src='img/marker9.jpg' width='139px'/>";
+var popupcontent10 = "<img src='img/marker10.jpg' width='139px'/>";
+var popupcontent11 = "<img src='img/marker11.jpg' width='139px'/>";
+var popupcontent12 = "<img src='img/marker12.jpg' width='139px'/>";
+var popupcontent13 = "<img src='img/marker13.jpg' width='139px'/>";
+var popupcontent14 = "<img src='img/marker14.jpg' width='139px'/>";
+var popupcontent15 = "<img src='img/marker15.jpg' width='139px'/>";
+var popupcontent16 = "<img src='img/marker16.jpg' width='139px'/>";
+var popupcontent17 = "<img src='img/marker17.jpg' width='139px'/>";
+
 
 var popup0 = L.popup({maxWidth: 100, closeButton: false, autoClose: true, closeOnClick:true}).setLatLng([markers2[0][0],markers2[0][1]]).setContent(markers2[0][2]);
-var popup1 = L.popup({maxWidth: 100, closeButton: false, autoClose: true, closeOnClick:true}).setLatLng([markers2[1][0]-12,markers2[1][1]+30]).setContent(markers2[1][2]);
-var popup2 = L.popup({maxWidth: 100, closeButton: false, autoClose: true, closeOnClick:true}).setLatLng([markers2[2][0]-12,markers2[2][1]+30]).setContent(markers2[2][2]);
-var popup3 = L.popup({maxWidth: 100, closeButton: false, autoClose: true, closeOnClick:true}).setLatLng([markers2[3][0]-12,markers2[3][1]+30]).setContent(markers2[3][2]);
-var popup4 = L.popup({maxWidth: 100, closeButton: false, autoClose: true, closeOnClick:true}).setLatLng([markers2[4][0]-12,markers2[4][1]+30]).setContent(markers2[4][2]);
-var popup5 = L.popup({maxWidth: 100, closeButton: false, autoClose: true, closeOnClick:true}).setLatLng([markers2[5][0]-12,markers2[5][1]+30]).setContent(markers2[5][2]);
-var popup6 = L.popup({maxWidth: 100, closeButton: false, autoClose: true, closeOnClick:true}).setLatLng([markers2[6][0]-12,markers2[6][1]+30]).setContent(markers2[6][2]);
-var popup7 = L.popup({maxWidth: 100, closeButton: false, autoClose: true, closeOnClick:true}).setLatLng([markers2[7][0]-12,markers2[7][1]+30]).setContent(markers2[7][2]);
-var popup8 = L.popup({maxWidth: 100, closeButton: false, autoClose: true, closeOnClick:true}).setLatLng([markers2[8][0]-12,markers2[8][1]+30]).setContent(markers2[8][2]);
-var popup9 = L.popup({maxWidth: 100, closeButton: false, autoClose: true, closeOnClick:true}).setLatLng([markers2[9][0]-12,markers2[9][1]+30]).setContent(markers2[9][2]);
-var popup10 = L.popup({maxWidth: 100, closeButton: false, autoClose: true, closeOnClick:true}).setLatLng([markers2[10][0]-12,markers2[10][1]+30]).setContent(markers2[10][2]);
-var popup11 = L.popup({maxWidth: 100, closeButton: false, autoClose: true, closeOnClick:true}).setLatLng([markers2[11][0]-12,markers2[11][1]+30]).setContent(markers2[11][2]);
-var popup12 = L.popup({maxWidth: 100, closeButton: false, autoClose: true, closeOnClick:true}).setLatLng([markers2[12][0]-12,markers2[12][1]+30]).setContent(markers2[12][2]);
-var popup13 = L.popup({maxWidth: 100, closeButton: false, autoClose: true, closeOnClick:true}).setLatLng([markers2[13][0]-12,markers2[13][1]+30]).setContent(markers2[13][2]);
-var popup14 = L.popup({maxWidth: 100, closeButton: false, autoClose: true, closeOnClick:true}).setLatLng([markers2[14][0]-12,markers2[14][1]+30]).setContent(markers2[14][2]);
-var popup15 = L.popup({maxWidth: 100, closeButton: false, autoClose: true, closeOnClick:true}).setLatLng([markers2[15][0]-12,markers2[15][1]+30]).setContent(markers2[15][2]);
-var popup16 = L.popup({maxWidth: 100, closeButton: false, autoClose: true, closeOnClick:true}).setLatLng([markers2[16][0]-12,markers2[16][1]+30]).setContent(markers2[16][2]);
+var popup1 = L.popup({maxWidth: 100, closeButton: false, autoClose: true, closeOnClick:true}).setLatLng([markers2[1][0]-12,markers2[1][1]+30]).setContent(popupcontent1);
+var popup2 = L.popup({maxWidth: 100, closeButton: false, autoClose: true, closeOnClick:true}).setLatLng([markers2[2][0]-12,markers2[2][1]+30]).setContent(popupcontent2);
+var popup3 = L.popup({maxWidth: 100, closeButton: false, autoClose: true, closeOnClick:true}).setLatLng([markers2[3][0]-12,markers2[3][1]+30]).setContent(popupcontent3);
+var popup4 = L.popup({maxWidth: 100, closeButton: false, autoClose: true, closeOnClick:true}).setLatLng([markers2[4][0]-12,markers2[4][1]+30]).setContent(popupcontent4);
+var popup5 = L.popup({maxWidth: 100, closeButton: false, autoClose: true, closeOnClick:true}).setLatLng([markers2[5][0]-12,markers2[5][1]+30]).setContent(popupcontent5);
+var popup6 = L.popup({maxWidth: 100, closeButton: false, autoClose: true, closeOnClick:true}).setLatLng([markers2[6][0]-12,markers2[6][1]+30]).setContent(popupcontent6);
+var popup7 = L.popup({maxWidth: 100, closeButton: false, autoClose: true, closeOnClick:true}).setLatLng([markers2[7][0]-12,markers2[7][1]+30]).setContent(popupcontent7);
+var popup8 = L.popup({maxWidth: 100, closeButton: false, autoClose: true, closeOnClick:true}).setLatLng([markers2[8][0]-12,markers2[8][1]+30]).setContent(popupcontent8);
+var popup9 = L.popup({maxWidth: 100, closeButton: false, autoClose: true, closeOnClick:true}).setLatLng([markers2[9][0]-12,markers2[9][1]+30]).setContent(popupcontent9);
+var popup10 = L.popup({maxWidth: 100, closeButton: false, autoClose: true, closeOnClick:true}).setLatLng([markers2[10][0]-12,markers2[10][1]+30]).setContent(popupcontent10);
+var popup11 = L.popup({maxWidth: 100, closeButton: false, autoClose: true, closeOnClick:true}).setLatLng([markers2[11][0]-12,markers2[11][1]+30]).setContent(popupcontent11);
+var popup12 = L.popup({maxWidth: 100, closeButton: false, autoClose: true, closeOnClick:true}).setLatLng([markers2[12][0]-12,markers2[12][1]+30]).setContent(popupcontent12);
+var popup13 = L.popup({maxWidth: 100, closeButton: false, autoClose: true, closeOnClick:true}).setLatLng([markers2[13][0]-12,markers2[13][1]+30]).setContent(popupcontent13);
+var popup14 = L.popup({maxWidth: 100, closeButton: false, autoClose: true, closeOnClick:true}).setLatLng([markers2[14][0]-12,markers2[14][1]+30]).setContent(popupcontent14);
+var popup15 = L.popup({maxWidth: 100, closeButton: false, autoClose: true, closeOnClick:true}).setLatLng([markers2[15][0]-12,markers2[15][1]+30]).setContent(popupcontent15);
+var popup16 = L.popup({maxWidth: 100, closeButton: false, autoClose: true, closeOnClick:true}).setLatLng([markers2[16][0]-12,markers2[16][1]+30]).setContent(popupcontent16);
 
-var popupMain = L.popup({ closeButton: false, autoClose: true, closeOnClick:true}).setLatLng([-564, -270]).setContent('<p><b>Welcome to Journey</b></p> Discover the map<br>and try to find all the checkpoint<br>like a true pioneer');
+// var popupMain = L.popup({ closeButton: false, autoClose: true, closeOnClick:true}).setLatLng([-564, -270]).setContent('<p><b>Welcome to Journey</b></p> Discover the map<br>and try to find all the checkpoint<br>like a true pioneer');
 
-var popupWelcome = new L.FeatureGroup();
-popupWelcome.addLayer(popupMain);
-map.addLayer(popupMain);
-map.on('zoomend', function() {
-    if (map.getZoom() <2){
-            map.removeLayer(popupMain);
-    }
-});
+// var popupWelcome = new L.FeatureGroup();
+// popupWelcome.addLayer(popupMain);
+// map.addLayer(popupMain);
+// map.on('zoomend', function() {
+//     if (map.getZoom() <2){
+//             map.removeLayer(popupMain);
+//     }
+// });
 
 //------------------------------LETTURA SPREADSHEET
 
@@ -182,6 +200,16 @@ L.marker([markers2[14][0], markers2[14][1]], {icon: campicon,}).addTo(map).on('m
 L.marker([markers2[15][0], markers2[15][1]], {icon: campicon,}).addTo(map).on('mouseover', nextmarker15).on('mouseout', nextmarkerclose15);
 L.marker([markers2[16][0], markers2[16][1]], {icon: poleicon,}).addTo(map).on('mouseover', nextmarker16).on('mouseout', nextmarkerclose16);
 
+//------------------------------TIMELINE
+
+document.getElementById('navigation').onclick = function(e) {
+    e.preventDefault();
+    var pos = e.target.getAttribute('data-position');
+    if (pos) {
+        var loc = pos.split(',');
+        map.setView(loc, 11);
+    }
+}
 
 //------------------------------FUNZIONI DA MARKER
 
