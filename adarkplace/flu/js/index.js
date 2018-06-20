@@ -1,3 +1,7 @@
+// Federico Cortesi @adarkplace © 2018 MIT License
+// FLU | Ravenna, IT
+// Educational purpose, made for DSII2018 lab @UniRSM
+
 var counter = 0;
 var crossRotation = true;
 var rot = 0;
