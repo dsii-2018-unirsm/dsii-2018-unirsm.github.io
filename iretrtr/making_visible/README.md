@@ -1,3 +1,9 @@
+## badlands05
+
+**[launch / open](http://dsii-2018-unirsm.github.io/iretrtr/making_visible/badlands05)**<br>
+Aprire in Firefox. Ultimo stadio di prototipo. Legenda informativa + subreddit name suggestons. Definizione dello stile, dei colori, dei simboli. Introduzione di icone. Generazione delle altitudini. Palette colori differente per i topic nsfw. Visualizzazione info riguardanti le singole città (topic) al passaggio del mouse. Generatore di nomi non casuale.
+<br>![Mappa del rubreddit r/nosleep](https://i.imgur.com/0J3pBQd.png)
+
 ## badlands03
 
 **[launch / open](http://dsii-2018-unirsm.github.io/iretrtr/making_visible/badlands03)**<br>
