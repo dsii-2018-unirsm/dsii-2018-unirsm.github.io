@@ -1,5 +1,5 @@
 // Irene Trotta @iretrtr © 2018 MIT License
-// badlands 01 | Città San't Angelo, IT | 5.2018
+// badlands 02 | Città San't Angelo, IT | 6.2018
 // Educational purpose, made for DSII2018 lab @UniRSM
 
 //create a map for online communities
