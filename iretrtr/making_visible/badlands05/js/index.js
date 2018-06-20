@@ -1,20 +1,9 @@
-/*
+// Irene Trotta @iretrtr © 2018 MIT License
+// badlands 05 | Città San't Angelo, IT | 6.2018
+// Educational purpose, made for DSII2018 lab @UniRSM
 
-2018
-iretrtr
-(bad)lands
-
-create a map for online communities
-prototype > create a map from/with subreddit data
-
-https://github.com/iretrtr/archive/tree/master/iretrtr/making_visible
-https://github.com/iretrtr/dsii-2018-unirsm.github.io/tree/master/iretrtr/making_visible
-
-libraries:
-rhill-voronoi-core
-p5.voronoi Gorhill implementation
-
-*/
+//create a map for online communities
+//prototype > create a map from/with subreddit data
 
 
 var timeline = [];
