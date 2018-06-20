@@ -1,3 +1,7 @@
+// Irene Trotta @iretrtr © 2018 MIT License
+// badlands population | Città San't Angelo, IT | 5.2018
+// Educational purpose, made for DSII2018 lab @UniRSM
+
 // load JSON data from an URL
 var subData;
 var subreddit_subscribers;
