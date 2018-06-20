@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>(bad)lands</title>
+  <script src="js/p5.js"></script>
+  <script src="js/library/rhill-voronoi-core.js"></script>
+  <script src="js/library/p5.voronoi.js"></script>
+  <script src="js/library/p5.dom.js"></script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Slabo+27px');
+    @import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
+
+    body {
+      padding: 0;
+      margin: 0;
+    }
+
+    #info {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      background: white;
+      padding: 10px;
+      font-size:11px;
+      font-family: Helvetica Neue, Arial, sans;
+      text-transform: uppercase;
+        }
+
+      h2 {
+        font-size: 24px;
+        font-family: 'Roboto Slab', Helvetica Neue, Arial, sans;
+        margin: 0px;
+      }
+
+      p{
+        width: 200px;
+        margin: 0;
+        padding-bottom: 5px;
+        padding-top: 5px;
+        font-size: 14px;
+        font-family: 'Roboto Slab', Helvetica Neue, Arial, sans;
+      }
+
+      button{
+        border: 1px solid black;
+      }
+
+      button {
+        -webkit-transition-duration: 0.4s;
+        transition-duration: 0.4s;
+      }
+
+      button:hover {
+        background-color: black;
+        color: white;
+      }
+
+      input {
+        border: 1px solid black;
+      }
+
+       div#suggestions{
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        padding: 5px;
+        margin-top: 10px;
+        border: 1px solid black;
+        font-size:11px;
+        font-family: 'Roboto Slab', Helvetica Neue, Arial, sans;
+        /*background-color: white;*/
+      }
+
+       /*div.cityInfo{
+        border: 1px solid black;
+        background-color: white;
+      }
+      p.landBio{
+      } */
+
+      </style>
+
+</head>
+<body>
+  <div id = "suggestions">
+    <b>subreddit<br>suggestions:</b><br>travel<br>nosleep<br>javascript<br>The_Donald<br>politics<br>piracy<br>sex<br>NSFW
+  </div>
+  <div id="info">
+<b>(bad)lands</b><br/>
+<em>online community map in p5</em><br />
+BY <a href="https://github.com/iretrtr" target="_blank">@iretrtr</a> © 2018 MIT License<br />
+DSII2018 lab @UniRSM <a href="http://dsii-2018-unirsm.github.io/" target="_blank" title="DSII2018 lab website">website</a>
+</div>
+  <!--<script src='https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.15/p5.js'></script>-->
+  <script  src="js/index.js"></script>
+</body>
+
+</html>

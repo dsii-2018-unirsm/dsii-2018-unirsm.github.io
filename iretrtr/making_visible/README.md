@@ -1,3 +1,15 @@
+## badlands05
+
+**[launch / open](http://dsii-2018-unirsm.github.io/iretrtr/making_visible/badlands05)**<br>
+Aprire in Firefox. Ultimo stadio di prototipo. Legenda informativa + subreddit name suggestons. Definizione dello stile, dei colori, dei simboli. Introduzione di icone. Generazione delle altitudini. Palette colori differente per i topic nsfw. Visualizzazione info riguardanti le singole città (topic) al passaggio del mouse. Generatore di nomi non casuale.
+<br>![Mappa del rubreddit r/nosleep](https://i.imgur.com/0J3pBQd.png)
+
+## badlands03
+
+**[launch / open](http://dsii-2018-unirsm.github.io/iretrtr/making_visible/badlands03)**<br>
+Visualizzazione delle città (topics); introduzione generatore di nomi per le città (per generare il nome di una città vengono divise consonanti e vocali del titolo del topic relativo in due array che vengono utilizzati per creare i gruppi di sillabe che andranno a formare il nome della città. I gruppi di sillabe sono generati su un principio di consonante/vocale/consonante.)
+<br>![Mappa del rubreddit r/news](https://i.imgur.com/LygOGCR.png)
+
 ## badlands01
 
 **[launch / open](http://dsii-2018-unirsm.github.io/iretrtr/making_visible/badlands01)**<br>
