@@ -1,3 +1,7 @@
+// Federico Cortesi @adarkplace © 2018 MIT License
+// 10 print adaptation | Ravenna, IT
+// Educational purpose, made for DSII2018 lab @UniRSM
+
 var unit = 0;
 var count;
 var mods = [];
