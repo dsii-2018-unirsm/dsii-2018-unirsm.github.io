@@ -128,7 +128,7 @@ function showLess(){
   textAlign(LEFT);
   fill(50);
   textSize(12);
-  text('Dal primo giorno dell\'anno in media\nquesto è il numero di morti\nper influenza in Italia.\n\nPremi + per scoprire', (width/4)-100, (height/2)-20);
+  text('Da quando sei entrato nella pagina\nquesto è il numero di morti\nper influenza in Italia.\n\nPremi + per scoprire', (width/4)-100, (height/2)-20);
 
 }
 
