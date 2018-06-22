@@ -1,3 +1,8 @@
+// Federico Cortesi @adarkplace © 2018 MIT License
+// JOURNEY - PROTO MARKER | Ravenna, IT
+// Educational purpose, made for DSII2018 lab @UniRSM
+
+//------------------------------DEFINIZIONI VARIABILI
 
 var url = "https://spreadsheets.google.com/feeds/list/1JDSbPNu-fHFAWMpIPzLiX_GG77CxRFYXaYVpT2_Fc-A/od6/public/values?alt=json";
 var data = [];
@@ -14,6 +19,9 @@ var snow, cloud_1, cloud_2, cloud_snow, cloud_sun;
 var mappaimg;
 var xpos, ypos;
 var lerpX, lerpY, lerpWind,lerpHum, lerpTemp;
+
+//------------------------------DEFINIZIONI COORDINATE
+
 var coordinates = [
     [-103,984],
     [-64,817],
@@ -36,7 +44,13 @@ var coordinates = [
 
 
 function preload(){
+
+  //------------------------------PRELETTURA SPREADSHEET
+
   loadJSON(url, gotSpreadsheet, 'jsonp');
+
+  //------------------------------ICONE CUSTOM
+
   iconBoat = loadImage('img/marker_boat.png');
   iconCamp = loadImage('img/marker_camp.png');
   iconFlag = loadImage('img/marker_flag.png');
@@ -48,6 +62,8 @@ function preload(){
   cloud_snow = loadImage('img/cloud_snow.png');
   myFont= loadFont('src/FF_DIN_Pro_Medium_Italic.otf');
 
+  //------------------------------MAPPA DI SFONDO
+
   mappaimg = loadImage('img/antarctica_3-02.png');
 }
 
@@ -55,6 +71,8 @@ function setup() {
   pixelDensity(displayDensity());
   createCanvas(windowWidth, windowHeight);
   textFont(myFont);
+
+  //------------------------------LERP E SISTEMA COORDINATE MAPPA DINAMICO X POSIZIONE INIZIALE
 
   xpos = coordinates[counter][0] + (width/2);
   ypos = coordinates[counter][1] + (height/2);
@@ -68,6 +86,8 @@ function setup() {
 
 function draw() {
 
+  //------------------------------MOVIMENTO MAPPA
+
   xpos = coordinates[counter][0] + (width/2);
   ypos = coordinates[counter][1] + (height/2);
 
@@ -78,6 +98,8 @@ function draw() {
   imageMode(CENTER);
   image(mappaimg,lerpX,lerpY);
   pop();
+
+  //------------------------------GRAFICA PULSANTI TONDI SOTTO IL MARKER
 
   translate( width/2, height/2);
   ellipseMode(RADIUS);
@@ -111,6 +133,8 @@ function draw() {
   endShape();
   pop();
 
+  //------------------------------DEFINIZIONE ICONA DEL MARKER
+
   if (counter == 0){
     image(iconFlag,-25,-25,50,50);
   } else if (counter < (data.length-1)){
@@ -118,6 +142,8 @@ function draw() {
   } else {
     image(iconBoat,-25,-25,50,50);
   }
+
+  //------------------------------DEFINIZIONE VALORI INIZIALI DEL POPUP E REGOLE DI VISUALIZZAZIONE
 
   press = map (data[counter]['pressione8am'],28,30,0,10);
   if (data[counter]['pressione8am']== 0){
@@ -166,6 +192,8 @@ function draw() {
     windDirection = 0;
   }
 
+  //------------------------------NOME E DATA
+
   push();
   rectMode (CORNER, BOTTOM);
   noStroke ();
@@ -185,6 +213,8 @@ function draw() {
   textSize(12);
   text (data[counter]['data'],75,-118);
 
+  //------------------------------INDICATORE E VALORE TEMPERATURA
+
   textAlign(CENTER);
 
   push();
@@ -198,6 +228,8 @@ function draw() {
   ellipse(86, -92, 10, 10);
   pop();
 
+  //------------------------------INDICATORE E VALORE PRESSIONE
+
   push();
   text (data[counter]['pressione8am'],120,-55);
   noFill();
@@ -206,6 +238,8 @@ function draw() {
   fill (0,113,188);
   ellipse(120, -92, press, press);
   pop();
+
+  //------------------------------INDICATORE E VALORE UMIDITA'
 
   push();
   text (data[counter]['absoHumidity8am']+'%',154,-49);
@@ -217,6 +251,8 @@ function draw() {
   lerpHum = lerp (lerpHum, hum, 0.1);
   ellipse(154, -92, lerpHum, lerpHum);
   pop();
+
+  //------------------------------INDICATORE E VALORE NUVOLE
 
   push();
   translate(0,0);
@@ -238,6 +274,7 @@ function draw() {
   }
   pop();
 
+  //------------------------------INDICATORE E VALORE VENTO
 
   text (data[counter]['windDir8am'],120,8);
   push();
@@ -246,6 +283,8 @@ function draw() {
   rotate (lerpWind);
   image(arrowWind,-10, -10, 20, 20);
   pop();
+
+  //------------------------------INDICATORE E VALORE NEVE
 
   push();
   if (data[counter]['remarks'] == '---'){
@@ -262,9 +301,7 @@ function draw() {
   pop();
 }
 
-
-
-
+//------------------------------LETTURA SPREADSHEET E TRASCRIZIONE VALORI IN UN ARRAY 2D
 
 function gotSpreadsheet(chart) {
   for (var i = 0; i < chart.feed.entry.length; i++) {
@@ -332,6 +369,8 @@ function gotSpreadsheet(chart) {
   counter = data.length-1;
 
 }
+
+//------------------------------DEFINIZIONE POSIZIONE MOUSE PER CLICK SULLE FRECCE PER CAMBIO MARKER
 
 function mouseClicked() {
   var dDX = dist(mouseX, mouseY, width/2+35, height/2+80);

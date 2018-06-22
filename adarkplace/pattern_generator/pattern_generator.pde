@@ -1,3 +1,15 @@
+// -
+// Pattern Generator based on modulo by Federico Cortesi [modulo, pattern]
+// 2018 © Federico Cortesi @adarkplace, DSII2018 @UniRSM 
+// github.com/adarkplace — github.com/dsii-2018-unirsm
+// Educational purposes, MIT License, 2018, San Marino
+// —
+//
+// Help:
+// [mouse] click on botton to change rythm or stop
+//
+// —
+
 import processing.sound.*;
 import controlP5.*;
 
