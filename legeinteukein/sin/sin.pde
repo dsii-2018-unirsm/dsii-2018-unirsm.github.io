@@ -40,3 +40,43 @@ void draw() {
     // mentre se si fosse scelto un numero intero l'oscillazione sarebbe avvenuta
     // a partire da un punto (origine x)fino all'estremo (dx per es. x+23) e poi tornato all'origine.
        
+     100+(sin(frameCount/(i+30))*(i+30)),
+      0+(i*50),
+      40,
+      40);
+    
+      ellipse(
+      200+(sin(frameCount/(i+20))*(i+25)),
+      0+(i*40),
+      40,
+      40);
+      
+      ellipse(
+      300+(sin(frameCount/(i+10))*(i+20)),
+     0+(i*30),
+      40,
+      40);
+     
+    
+      ellipse(
+      600+(sin(frameCount/(i+20))*(i+25)),
+      0+(i*40),
+      40,
+      40);
+      
+      ellipse(
+      500+(sin(frameCount/(i+30))*(i+30)),
+      0+(i*50),
+      40,
+      40);
+      
+       ellipse(
+      400+(sin(frameCount/(i+10))*(i+20)),
+      0+(i*30),
+      40,
+      40);
+      
+      
+      
+  }
+}
