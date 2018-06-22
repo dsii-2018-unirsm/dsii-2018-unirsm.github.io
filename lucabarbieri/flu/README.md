@@ -16,6 +16,6 @@ I dati sono forniti a distanza dai National Influenza Centres (NICs) del Global 
 
 ![Flu Preview](https://i.imgur.com/12vDbpc.png)
 
-</br></br>
+</br>
 by lucabarbieri © 2017-18 MIT License</br>
 DSII2018 Lab @UNIRSM</br>
