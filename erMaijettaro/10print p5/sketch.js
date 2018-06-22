@@ -1,4 +1,16 @@
-
+// -
+// Nomefile 0.1 by Nomestudente [keyword1, keyword2]
+// 2018 © Nomestudente, Daniele @Fupete and the course DSII2018 @UniRSM 
+// github.com/fupete — github.com/dsii-2018-unirsm
+// Educational purposes, MIT License, 2018, San Marino
+// —
+//
+// Help:
+// [key] action
+// [key] action
+// [mouse] action
+//
+// —
 var canvas;
 function  setup() {
  canvas = createCanvas(window.innerWidth, window.innerHeight);
