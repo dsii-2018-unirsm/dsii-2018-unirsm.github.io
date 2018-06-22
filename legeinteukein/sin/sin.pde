@@ -1,3 +1,8 @@
+// SIN by legeinteukein [sin, circle]
+// 2018 © legeinteukein, Daniele @Fupete and the course DSII2018 @UniRSM
+// github.com/fupete — github.com/dsii-2018-unirsm
+// Educational purposes, MIT License, 2018, San Marino
+
 void setup() {
   size(700, 400);
 }
