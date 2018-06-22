@@ -11,25 +11,19 @@ var y1 = 0;
 var x2 = 140; //20*7
 var y2 = 140; //20*7
 
+var d = 20; // dimension of a single side square
+var d1 = 20 * 7;  // set "position square" dimension
+
 function setup() {
-  createCanvas(700, 857); // set dimension of html view box
-  background(250); // set backgorund beige
+  createCanvas(420, 420); // set dimension of html view box
+  background(250); // set backgorund color
   noStroke(); // hide the square stroke
+  frameRate(300);
 }
 
 function draw() {
-  var d = 20; // dimension of a single side square
-  var d1 = 20 * 7;  // set "position square" dimension
 
   create_square();
-
-  function mouseClicked() {
-    console.log("mousePressed");
-    // Show QR Code example
-    create_marker();
-    //noLoop();
-}
-
 
   function create_square() {
     var rnd = random(1);
@@ -50,11 +44,8 @@ function draw() {
     if (y >= 21*20){
     y= 0; //continua a modificare il qr code
     }
-  }
 
-
-
-  function create_marker (){
+    // Show QR Code example
     //draw the position
     // first serial of square
     fill(255);
@@ -94,94 +85,95 @@ function draw() {
 
     fill(0);
     rect(x1+40, y1+(16*20), d1-80, d1-80);
-
   }
 
-  /* Key square for detection
-  // draw decoding "timing" x
-  for (var i=0; i<7; i++){
-  if (i % 2 == 0){
-    fill(255)
-  }else(fill(0))
 
-  rect(x2+(i*20),y2-20,d,d);
-  }
 
-  // draw decoding "timing" y
-  for (var u=0; u<7; u++){
-  if (u % 2 == 0){
-    fill(255)
-  }else(fill(0))
-
-  rect(x2-20,y2+(u*20),d,d);
-  }
-
-  // draw "format string" pattern
-  // dx line
-
-  fill(255); // white
-  rect(8*d,0,d,d);
-  fill(0); // black
-  rect(8*d,20,d,d);
-  fill(255); // white
-  rect(8*d,40,d,d);
-  fill(0); // black
-  rect(8*d,60,d,d);
-  rect(8*d,80,d,d);
-  fill(255); // white
-  rect(8*d,100,d,d);
-  fill(0); // black
-  rect(8*d,120,d,d);
-  rect(8*d,140,d,d);
-
-  //bottom line
-  fill(255); // white
-  rect(0,8*d,d,d);
-  fill(0); // black
-  rect(20,8*d,d,d);
-  fill(255); // white
-  rect(40,8*d,d,d);
-  fill(0); // black
-  rect(60,8*d,d,d);
-  rect(80,8*d,d,d);
-  rect(100,8*d,d,d);
-  rect(120,8*d,d,d);
-  fill(255); // white
-  rect(140,8*d,d,d);
-
-  // dx line bottom
-  fill(0); // black
-  rect(8*d,13*d,d,d);
-  fill(255); // white
-  rect(8*d,14*d,d,d);
-  fill(0); // black
-  rect(8*d,15*d,d,d);
-  rect(8*d,16*d,d,d);
-  rect(8*d,17*d,d,d);
-  fill(255); // white
-  rect(8*d,18*d,d,d);
-  fill(0); // black
-  rect(8*d,19*d,d,d);
-  fill(255); // white
-  rect(8*d,20*d,d,d);
-
-  // dx line side
-  fill(0); // black
-  rect(13*d,8*d,d,d);
-  rect(14*d,8*d,d,d);
-  fill(255); // white
-  rect(15*d,8*d,d,d);
-  fill(0); // black
-  rect(16*d,8*d,d,d);
-  rect(17*d,8*d,d,d);
-  fill(255); // white
-  rect(18*d,8*d,d,d);
-  fill(0); // black
-  rect(19*d,8*d,d,d);
-  fill(255); // white
-  rect(20*d,8*d,d,d);
-  */
 }
 
-// implementazioni future
-// mouseClicked not run!
+// to do for the next level
+
+/* Key square for detection
+// draw decoding "timing" x
+for (var i=0; i<7; i++){
+if (i % 2 == 0){
+  fill(255)
+}else(fill(0))
+
+rect(x2+(i*20),y2-20,d,d);
+}
+
+// draw decoding "timing" y
+for (var u=0; u<7; u++){
+if (u % 2 == 0){
+  fill(255)
+}else(fill(0))
+
+rect(x2-20,y2+(u*20),d,d);
+}
+
+// draw "format string" pattern
+// dx line
+
+fill(255); // white
+rect(8*d,0,d,d);
+fill(0); // black
+rect(8*d,20,d,d);
+fill(255); // white
+rect(8*d,40,d,d);
+fill(0); // black
+rect(8*d,60,d,d);
+rect(8*d,80,d,d);
+fill(255); // white
+rect(8*d,100,d,d);
+fill(0); // black
+rect(8*d,120,d,d);
+rect(8*d,140,d,d);
+
+//bottom line
+fill(255); // white
+rect(0,8*d,d,d);
+fill(0); // black
+rect(20,8*d,d,d);
+fill(255); // white
+rect(40,8*d,d,d);
+fill(0); // black
+rect(60,8*d,d,d);
+rect(80,8*d,d,d);
+rect(100,8*d,d,d);
+rect(120,8*d,d,d);
+fill(255); // white
+rect(140,8*d,d,d);
+
+// dx line bottom
+fill(0); // black
+rect(8*d,13*d,d,d);
+fill(255); // white
+rect(8*d,14*d,d,d);
+fill(0); // black
+rect(8*d,15*d,d,d);
+rect(8*d,16*d,d,d);
+rect(8*d,17*d,d,d);
+fill(255); // white
+rect(8*d,18*d,d,d);
+fill(0); // black
+rect(8*d,19*d,d,d);
+fill(255); // white
+rect(8*d,20*d,d,d);
+
+// dx line side
+fill(0); // black
+rect(13*d,8*d,d,d);
+rect(14*d,8*d,d,d);
+fill(255); // white
+rect(15*d,8*d,d,d);
+fill(0); // black
+rect(16*d,8*d,d,d);
+rect(17*d,8*d,d,d);
+fill(255); // white
+rect(18*d,8*d,d,d);
+fill(0); // black
+rect(19*d,8*d,d,d);
+fill(255); // white
+rect(20*d,8*d,d,d);
+*/
