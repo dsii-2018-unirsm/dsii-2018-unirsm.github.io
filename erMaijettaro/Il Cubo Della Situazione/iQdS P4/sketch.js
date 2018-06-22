@@ -1,5 +1,5 @@
 // -
-// P2 0.1 by Riccardo Frignani [prototipo]
+// FLU 0.1 by Riccardo Frignani [virus, a, b]
 // 2018 © Riccardo Frignani, Daniele @Fupete and the course DSII2018 @UniRSM 
 // github.com/fupete — github.com/dsii-2018-unirsm
 // Educational purposes, MIT License, 2018, San Marino
@@ -85,36 +85,46 @@ function preload() {
 function setup() {
 
   noLoop();
-  createCanvas(displayWidth, displayHeight);
+  createCanvas(windowWidth, windowHeight);
   background(0);
-noStroke();
+  noStroke();
   //quando il dato maggiore sta per andare fuori scala queste righe riadattano la scala
   var numArray = [data1.totalResults, data2.totalResults, data3.totalResults];
   var pippo = max(numArray);
 
+
+//verifica errori
+//fill(255,0,0);
+//text(data1.totalResults, 200,200);
+//text(data2.totalResults, 400,200);
+//text(data3.totalResults, 600,200);
+
+
+
+
   fill(100);
 
-  for (var j=0; j<8;j++){
-    ellipse(displayWidth/3/2, -j*60+600, 50, 50)
-    ellipse(displayWidth/3+displayWidth/3/2, -j*60+600, 50, 50)
-    ellipse(displayWidth-displayWidth/3/2, -j*60+600, 50, 50)
+  for (var j=0; j<3;j++){
+    ellipse(windowWidth/3/2, -j*60+windowHeight/5*4, 50, 50)
+    ellipse(windowWidth/3+windowWidth/3/2, -j*60+windowHeight/5*4, 50, 50)
+    ellipse(windowWidth-windowWidth/3/2, -j*60+windowHeight/5*4, 50, 50)
   }
 
-var numluce1= int (map(data1.totalResults, 0, pippo, 0, 7)); //x3
-var numluce2= int (map(data2.totalResults, 0, pippo, 0, 7));
-var numluce3= int (map(data3.totalResults, 0, pippo, 0, 7));
+var numluce1= int (map(data1.totalResults, 0, pippo, 0, 2)); //x3
+var numluce2= int (map(data2.totalResults, 0, pippo, 0, 2));
+var numluce3= int (map(data3.totalResults, 0, pippo, 0, 2));
 fill(250);
 
 for (var i=0; i<=numluce1;i++){
-ellipse(displayWidth/3/2, -i*60+600, 50, 50)
+ellipse(windowWidth/3/2, -i*60+windowHeight/5*4, 50, 50)
 }
 
 for (var i=0; i<=numluce2;i++){
-ellipse(displayWidth/3+displayWidth/3/2, -i*60+600, 50, 50)
+ellipse(windowWidth/3+windowWidth/3/2, -i*60+windowHeight/5*4, 50, 50)
 }
 
 for (var i=0; i<=numluce3;i++){
-ellipse(displayWidth-displayWidth/3/2, -i*60+600, 50, 50)
+ellipse(windowWidth-windowWidth/3/2, -i*60+windowHeight/5*4, 50, 50)
 }
 
 
@@ -308,9 +318,9 @@ ellipse(displayWidth-displayWidth/3/2, -i*60+600, 50, 50)
   textAlign(CENTER);
   fill(255);
   textSize(50);
-  text (news1, displayWidth/3/2,50);
-  text (news2, displayWidth/3+displayWidth/3/2,50);
-  text (news3, displayWidth-displayWidth/3/2,50);
+  text (news1, windowWidth/3/2,50);
+  text (news2, windowWidth/3+windowWidth/3/2,50);
+  text (news3, windowWidth-windowWidth/3/2,50);
 
 
   //testo introduttivo
@@ -321,10 +331,10 @@ ellipse(displayWidth-displayWidth/3/2, -i*60+600, 50, 50)
   //inizio scrapping
     text("inizio ispezione: "+giorno+"."+mese+"."+anno,50, 300);
 
+
+    //riadatta la pagina
+    function windowResized() {
+      resizeCanvas(windowWidth, windowHeight);
+    }
+
 }
-
-
-
-//riadatta la pagina
-  function windowResized() {
-    resizeCanvas(windowWidth, windowHeight);}
