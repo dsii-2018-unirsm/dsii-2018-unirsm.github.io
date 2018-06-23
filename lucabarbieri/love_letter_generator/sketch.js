@@ -1,5 +1,5 @@
 // Luca Barbieri @lb © 2017-18 MIT License
-// Love Letter Generator M.U.C. | San Marino, RSM | 3.2018
+// Love Letter Generator M.U.C. | San Marino, RSM | 6.2018
 // Educational purpose, made for DSII2018 lab @UniRSM
 
 var intro1 = ["Beloved", "Darling", "Dear", "Dearest", "Fanciful", "Honey"];
