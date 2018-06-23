@@ -1,4 +1,8 @@
-/* Variazione 10 print */
+// Variazione 10 print by legeinteukein [blu, quadrati]
+// 2018 © legeinteukein, Daniele @Fupete and the course DSII2018 @UniRSM
+// github.com/fupete — github.com/dsii-2018-unirsm
+// Educational purposes, MIT License, 2018, San Marino
+
 
 
 int w = 16;//dimensione quadrato 
