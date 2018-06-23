@@ -1,3 +1,10 @@
+// Pattern_modulo 0.1 by Damiano Pluchino [keyword1, keyword2]
+// 2018 © Damiano Pluchino, Daniele @Fupete and the course DSII2018 @UniRSM 
+// github.com/fupete — github.com/dsii-2018-unirsm
+// Educational purposes, MIT License, 2018, San Marino
+// —
+//
+// 
 int num [] = {3, 4};
 int i;
 int n=0;
