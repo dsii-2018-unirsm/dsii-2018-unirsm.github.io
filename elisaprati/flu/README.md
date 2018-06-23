@@ -2,7 +2,7 @@
 Confronto del numero di morti settimanali delle ultime tre stagioni influenzali <br> 
 
 
-[launch/open](link) <br> 
+[launch/open](https://github.com/dsii-2018-unirsm) <br> 
 
 by elisaprati <br> 
 
