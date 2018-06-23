@@ -1,0 +1,153 @@
+<!doctype html>
+
+<meta charset="UTF-8">
+<html>
+
+<head>
+  <title>Hidden Relation</title>
+
+  <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
+
+  <!-- libreria che permette di creare un percorso stradale partendo da 2 coordinate -->
+  <script type="text/javascript" src="js/gmaps.js"></script>
+
+  <!-- libreria che permette di integrare le mappe con P5 -->
+  <script src="js/mappa.min.js"></script>
+
+  <!-- libreria p5 -->
+  <script src="js/p5.js"></script>
+
+  <!-- libreria per interagire con gli oggetti del DOM -->
+  <script language="javascript" type="text/javascript" src="js/p5.dom.js"></script>
+
+  <!-- llibreria che permette di formattare e convertire una marca temporale in una data leggibile -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+
+  <!-- API google maps -->
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+
+  <!-- libreria bootstrap -->
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+
+  <!-- font e icone -->
+  <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+
+  <link rel="stylesheet" href="css/style.css">
+  </script>
+
+  <script src="sketch.js"></script>
+  <!-- libreria jQuery - write less do more - -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  <!-- libreria bootstrap -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
+
+
+</head>
+
+
+
+
+<div id='container'></div>
+
+<body>
+  <section class="design-process-section" id="process-tab">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <!-- design process steps-->
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs process-model more-icon-preocess" role="tablist">
+            <li role="presentation" class="active"><a href="#hidden" aria-controls="discover" role="tab" data-toggle="tab"><i class="fa fa-search" aria-hidden="true"></i>
+          <p>Progetto</p>
+          </a></li>
+            <li role="presentation"><a href="#deriva" aria-controls="strategy" role="tab" data-toggle="tab"><i class="fa fa-send-o" aria-hidden="true"></i>
+          <p>Mappa</p>
+          </a></li>
+            <li role="presentation"><a href="#percorsi" aria-controls="optimization" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>
+          <p>Percorso</p>
+          </a></li>
+            <li role="presentation"><a href="#scoperta" aria-controls="content" role="tab" data-toggle="tab"><i class="fa fa-newspaper-o" aria-hidden="true"></i>
+          <p>Deriva</p>
+          </a></li>
+            <li role="presentation"><a href="#confronto" aria-controls="reporting" role="tab" data-toggle="tab"><i class="fa fa-clipboard" aria-hidden="true"></i>
+          <p>Confronto</p>
+          </a></li>
+          </ul>
+
+          <!-- Tab bootstrap-->
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="hidden">
+              <div class="design-process-content">
+                <h3 class="semi-bold">Hidden relations </h3>
+                <p> Hidden relations fornisce cartografie digitali e mappe fisiche, suggerendo nuove modalità e percorsi di esplorazione dello spazio urbano.</p>
+              </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="deriva">
+              <div class="design-process-content">
+
+                <h3 class="semi-bold">Teoria della deriva</h3>
+                <p>«Per fare una deriva, andate in giro a piedi senza meta od orario. Scegliete man mano il percorso non in base a ciò che sapete, ma in base a ciò che vedete intorno. Dovete essere straniati e guardare ogni cosa come se fosse la prima volta.
+                  Un modo per agevolarlo è camminare con passo cadenzato e sguardo leggermente inclinato verso l’alto, in modo da portare al centro del campo visivo l’architettura e lasciare il piano stradale al margine inferiore della vista. Dovete percepire
+                  lo spazio come un insieme unitario e lasciarvi attrarre dai particolari»</p>
+              </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="percorsi">
+              <div class="design-process-content">
+                <h3 class="semi-bold">Percorso</h3>
+                <p>Questo è il tragitto che, grazie all'utilizzo di Google Maps, hai seguito nell'ultimo mese. Il tracciato è stato determinato da algoritmi, che forniscono la via più rapida.<br> Vorresti sentirti libero di scegliere ogni volta un nuovo
+                  percorso?
+                </p>
+              </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="scoperta">
+              <div class="design-process-content">
+                <h3 class="semi-bold">Deriva</h3>
+                <p>Questo è un percorso alternativo fornito da Hidden Relations, per permetterti di vedere nuovi paesaggi, vie alternative e spingerti a esplorare diversamente lo spazio urbano.</p>
+              </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="confronto">
+              <div class="design-process-content">
+                <h3>Confronto</h3>
+                <div class="finestra"></div>
+
+
+
+                <p>Confronta il tragitto che hai percorso grazie a GoogleMaps con quello suggerito da Hidden Relations. </p>
+                <br>
+                <div class="slidecontainer">
+                  <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+  <script>
+    var slider = document.getElementById("myRange");
+    var output = document.getElementById("demo");
+    // output.innerHTML = slider.value;
+
+    slider.oninput = function() {
+      //  output.innerHTML = this.value;
+      var m = map(this.value, 0, 100, 0, 1);
+      console.log(m)
+      $(' .leaflet-container').css('opacity', m);
+
+    }
+   
+  </script>
+
+</body>
+
+<script src="js/index.js">
+  $(' .leaflet-container').css('opacity', 0);
+</script>
+<div id="info">
+  <b>Hidden relations</b><br/>
+  <em>#psicogeografia #relazione #percorsi  #scoperta  #deriva   </em><br /><br/> BY frmurgia © 2017-18 MIT License<br /> DSII2018 lab @UniRSM <a href="https://github.com/dsii-2018-unirsm" target="_blank" title="DSII2018 lab website">website</a>
+</div>
+
+</html>
