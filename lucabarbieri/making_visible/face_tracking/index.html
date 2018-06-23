@@ -1,19 +1,123 @@
+<!DOCTYPE html>
 <html>
+<head>
+	<title>Affactiva basic test with webcam</title>
+  	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"/></script>
+    <script type="text/javascript" src="https://download.affectiva.com/js/3.1/affdex.js"/></script>
+</head>
+<body>
+	<button id="start" onclick="onStart()">Start</button>
+	<button id="stop" onclick="onStop()">Stop</button>
+	<button id="reset" onclick="onReset()">Reset</button>
+	<hr>
 
-  <head>
-    <script src="../libs/clmtrackr.js"></script>
-    <script src="../libs/model_pca_20_svm.js"></script>
-    <script src="../libs/p5.js"></script>
-    <script src="../libs/p5.dom.js"></script>
-    <script src="../libs/emotion_classifier.js"></script>
-    <script src="../libs/emotionmodel.js"></script>
-    <script src="sketch.js"></script>
+	<div id="content" style="border: 1px solid; width: 400px; height: 620px; float: left; margin: 10px; padding: 0;">
 
-    <style> body { padding: 40; margin: 20} </style>
+		CONTENT
 
-  </head>
+	</div>
 
-  <body>
-  </body>
+	<div id="preview" style="border: 1px solid; width: 400px; height: 300px; float: left; margin: 10px; padding: 0;">
 
+	</div>
+
+	<div id="results" style="border: 1px solid; width: 400px; height: 700px; float: left; margin: 10px; padding: 0;">
+
+	</div>
+
+
+
+<script type="text/javascript">
+
+
+// Link a div for previewing the camera feed
+var divRoot = $("#preview")[0];
+
+// Configuration
+var width = 400;
+var height = 300;
+var faceMode = affdex.FaceDetectorMode.LARGE_FACES; // type of face recognize (Large is for adult)
+
+//Construct a CameraDetector
+var detector = new affdex.CameraDetector(divRoot, width, height, faceMode);
+
+
+//Enable detection of all Expressions, Emotions and Emojis classifiers.
+detector.detectAllEmotions();
+detector.detectAllExpressions();
+detector.detectAllEmojis();
+detector.detectAllAppearance();
+
+//function executes when Start button is pushed.
+function onStart() {
+	if (detector && !detector.isRunning) {
+		detector.start();
+	}
+}
+
+//function executes when the Stop button is pushed.
+function onStop() {
+	if (detector && detector.isRunning) {
+		detector.removeEventListener();
+		detector.stop();
+	}
+};
+
+//function executes when the Reset button is pushed.
+function onReset() {
+	if (detector && detector.isRunning) {
+		detector.reset();
+		$('#results').html("");
+	}
+};
+
+
+//Add a callback to notify when the detector is initialized and ready for runing.
+detector.addEventListener("onInitializeSuccess", function() {
+	//The following two objects are oart of the Affectiva SDK
+	//Display canvas instead of video feed because we want to draw the feature points on it
+	$("#face_video_canvas").css("display", "block");
+	$("#face_video").css("display", "none");
+});
+
+//Add a callback to receive the results from processing an image.
+//The faces object contains the list of the faces detected in an image.
+//Faces object contains probabilities for all the different expressions, emotions and appearance metrics
+detector.addEventListener("onImageResultsSuccess", function(faces, image, timestamp) {
+	if (faces.length > 0) {
+		var resultsHtml = "";
+		resultsHtml += "Number of faces found: " + faces.length;
+		resultsHtml += "<br>Appearances: " + JSON.stringify(faces[0].appearance);
+		resultsHtml += "<br>Emotions: " + JSON.stringify(faces[0].emotions);
+		resultsHtml += "<br>Expressions: " + JSON.stringify(faces[0].expressions);
+		resultsHtml += "<br>Emoji: " + faces[0].emojis.dominantEmoji;
+		var htmlToDisplay = resultsHtml.replace(/,/g,",<br>");	// make output nicer
+		$('#results').html(htmlToDisplay);
+		drawFeaturePoints(image, faces[0].featurePoints);
+	}
+
+});
+
+//Draw the detected facial feature points on the image
+function drawFeaturePoints(img, featurePoints) {
+	var contxt = $('#face_video_canvas')[0].getContext('2d');
+
+	var hRatio = contxt.canvas.width / img.width;
+	var vRatio = contxt.canvas.height / img.height;
+	var ratio = Math.min(hRatio, vRatio);
+
+	contxt.strokeStyle = "#FFFFFF";
+	for (var id in featurePoints) {
+		contxt.beginPath();
+		contxt.arc(featurePoints[id].x,
+		featurePoints[id].y, 2, 0, 2 * Math.PI);
+		contxt.stroke();
+
+	}
+}
+
+</script>
+</body>
 </html>
