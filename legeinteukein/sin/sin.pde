@@ -59,13 +59,13 @@ void draw() {
      
     
       ellipse(
-      600+(sin(frameCount/(i+20))*(i+25)),
+      500+(sin(frameCount/(i+20))*(i+25)),
       0+(i*40),
       40,
       40);
       
       ellipse(
-      500+(sin(frameCount/(i+30))*(i+30)),
+      600+(sin(frameCount/(i+30))*(i+30)),
       0+(i*50),
       40,
       40);
