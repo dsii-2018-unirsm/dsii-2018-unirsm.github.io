@@ -1,0 +1,31 @@
+<!--
+Questo test è basato su un progetto di Bart van der Wal (https://github.com/bartvanderwal) e (https://github.com/exif-js/exif-js).
+A partire da una singola immagine salvata su disco rigido vengono stampati a video tutti i metadati relativi.
+-->
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Javascript Library for reading Metadata from Image</title>
+    <script src="exif.js"></script>
+</head>
+<body>
+  <img src="image2.jpg" id="img2" />
+  <pre id="allMetaDataSpan"></pre>
+  <br/>
+
+  <script>
+  window.onload=getExif;
+
+  function getExif() {
+    var img2 = document.getElementById("img2");
+    EXIF.getData(img2, function() {
+    var allMetaData = EXIF.getAllTags(this);
+    var allMetaDataSpan = document.getElementById("allMetaDataSpan");
+    allMetaDataSpan.innerHTML = JSON.stringify(allMetaData, null, "\t");
+    });
+  }
+  </script>
+</body>
+</html>
