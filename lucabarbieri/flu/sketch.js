@@ -1,5 +1,5 @@
 // Luca Barbieri @lb © 2017-18 MIT License
-// P5js retrieve data from Google Spreadsheets/JSON & make OOP | San Marino, RSM | 3.2018
+// P5js retrieve data from Google Spreadsheets/JSON & make OOP | San Marino, RSM | 6.2018
 // Educational purpose, made for DSII2018 lab @UniRSM
 
 // P5js gdoc example inspired on Gist https://gist.github.com/claytical/6a929f14964c867e07d8 by @claytical
