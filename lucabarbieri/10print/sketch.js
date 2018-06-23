@@ -1,5 +1,5 @@
 // Luca Barbieri @lb © 2017-18 MIT License
-// animated cover book "le leggi della semplicità - John Maeda" | San Marino, RSM | 3.2018
+// animated cover book "le leggi della semplicità - John Maeda" | San Marino, RSM | 6.2018
 // Educational purpose, made for DSII2018 lab @UniRSM
 
 var x = 0; // set initial value of x
