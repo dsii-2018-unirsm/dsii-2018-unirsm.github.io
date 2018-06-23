@@ -1,11 +1,10 @@
 
-#titolo <br> 
+#AZULEJOS <br> 
 
-[launch/open](link) <br> 
+[launch/open](http://dsii-2018-unirsm.github.io/) <br> 
 
 by elisaprati <br> 
-
------ <br> 
+ <br> 
 
 img <br> 
 
