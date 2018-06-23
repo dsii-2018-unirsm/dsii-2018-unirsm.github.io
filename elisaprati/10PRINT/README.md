@@ -8,7 +8,7 @@ by elisaprati <br>
 
  <br> 
 
-![azulejos](blob:https://imgur.com/415d0ef9-f8bb-428b-9de6-5778fa72c7e5)
+![azulejos](https://i.imgur.com/1STXVqp.png)
 
 
 
