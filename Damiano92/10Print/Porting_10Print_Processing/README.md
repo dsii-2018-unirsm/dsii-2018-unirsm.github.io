@@ -3,4 +3,4 @@
 
 by @Damiano © 2018 MIT License  
 DSII2018 Lab @UNIRSM [website](http://dsii-2018-unirsm.github.io)
-https://imgur.com/9JMk0th
+![Imgur](https://i.imgur.com/9JMk0th.png)
