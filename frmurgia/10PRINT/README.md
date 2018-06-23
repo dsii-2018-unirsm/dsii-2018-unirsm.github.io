@@ -1,6 +1,6 @@
 
 # 10 print [launch / open](https://dsii-2018-unirsm.github.io/frmurgia/10PRINT/index.html)
-
+![Alt Text](https://github.com/frmurgia/Img/blob/master/10%20print.png?raw=true)
 ispirato al lavoro audio/video minimalista
 di Ryoji Ikeda
 
