@@ -8,7 +8,7 @@ by elisaprati <br>
 
  <br> 
 
-![img](https://imgur.com/a/uiaDjf8)
+![](https://imgur.com/a/uiaDjf8)
 
 
 
