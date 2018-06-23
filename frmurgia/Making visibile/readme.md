@@ -1,7 +1,6 @@
 
 
-# Making visible 
-[launch / open](https://dsii-2018-unirsm.github.io/frmurgia/Random_Pattern/generatore%20pattern/index.html)
+# Making visible [launch / open](https://dsii-2018-unirsm.github.io/frmurgia//Making%20visibile/index.html)
  
   
  
