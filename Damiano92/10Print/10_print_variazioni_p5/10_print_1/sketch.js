@@ -1,46 +1,29 @@
-var wave;
-var x = 0;
-var y = 0;
+var c = 0;
+
 
 
 function setup() {
-  createCanvas(900, 900);
+  createCanvas(windowWidth, windowHeight);
   wave = new p5.Oscillator();
   wave.setType('triangle');
-  wave.amp(0.5);
-  wave.freq(432);
-  wave.start();
+  wave.amp(3);
+  wave.freq(15);
+
 }
 
-  
-function draw(){  
-  if (random(1) > 0.5) {
-    wave.freq(200)
-    strokeWeight(3);
-    line(x, y, x + 50, y + 50);//cambiare in ellipse per rendere stile codice morse
-  } else {
-    wave.freq(900)
-    strokeWeight(3);
-    line(x, y + 20, x + 20, y);
-    stroke('#445590');
+function draw() {
+  background(195, 44, 60);
+  if (mouseIsPressed) {
+
+    for (var y = 0; y < height; y += 25) {
+
+      for (var x = 0; x < width; x += 25) {
+        wave.start();
+        var c = int(random(2)) * 25;
+        strokeWeight(2);
+        line(x + c, y, x + 25 - c, y + 25);
+
+      }
+    }
   }
-
-  x += 20;
-
-  if (x > width) {
-    x = 0;
-    y += 20;
-  }
-
-  if (y > height) {
-    background(255);
-    x = 0;
-    y = 0;
-  }
-  
-  
-  
-};
-
-
-
+}

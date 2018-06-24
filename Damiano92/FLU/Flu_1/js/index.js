@@ -1,6 +1,6 @@
 ///////////////////
-// Daniele Tabellini @fupete © 2018 MIT License
-// P5js retrieve data from Google Spreadsheets/JSON & make OOP | Firenze, IT | 4.2017
+// Damiano Pluchino  © 2018 MIT License
+// P5js retrieve data from Google Spreadsheets/JSON & make OOP | San Marino, SM | 7.2018
 // Educational purpose, made for DSII2018 lab @UniRSM
 
 // P5js gdoc example inspired on Gist https://gist.github.com/claytical/6a929f14964c867e07d8 by @claytical
@@ -59,8 +59,7 @@ function gotSpreadsheet(datiEgx) {
                   "mortidonna": datiEgx.feed.entry[i].gsx$mortidonna.$t,
                   //brightness
                   "mortitotali": datiEgx.feed.entry[i].gsx$mortitotali.$t,
-                  //"alpha": colori.feed.entry[i].gsx$alpha.$t,
-                  //"forma": colori.feed.entry[i].gsx$forma.$t
+
               }
     console.log(c); // < debug, verifica oggetto 1x1
     // e ora generiamo un nuovo oggetto classe "Oggetto"
@@ -78,22 +77,10 @@ function Oggetto(_id, _anno, _mortiuomo, _mortidonna, _mortitotali) {
   this.mortiuomo = Number(_mortiuomo);
   this.mortidonna = Number(_mortidonna);
   this.mortitotali = Number(_mortitotali);
-  //this.alpha = Number(_alpha)/100;
-  //this.forma = _forma;
-
-  //this.speed = _mortiuomo/10; //random(-10,10); // < velocità di variazione su asse y
-  //this.dy = 0; // variazione delta Y relativa al presente, si parte da 0
-  //this.speedRot = _mortiuomo;
 
   // FUNZIONALITA
 
-  this.muovi = function() {
-    // oscilla su asse y, velocità dipende dall'alpha
-    this.dy += this.speed;//random(-10,10);
-    if (abs(this.dy) >= height/2) {
-      this.speed *= -1;
-    }
-  } //move()
+
 
   this.mostra = function() {
     // disegna, cerchio o quadrato dipende dalla forma, colore dai dati passati
@@ -101,32 +88,39 @@ function Oggetto(_id, _anno, _mortiuomo, _mortidonna, _mortitotali) {
     push();
     translate(grid-50+ this.id * grid, height/3);//+ this.dy
 
-  //  if (ruota) {
-    //  rotate(frameCount/this.speedRot);
-    //}
-    //if (this.mortiuomo == "quadrato") {
 
-  //  } else if (this.mortidonna == "cerchio") {
-
-    //}
-
+/////REATTANGOLI ISTOGRAMMA
+    //fill
     fill(255);
-    textAlign(LEFT, CENTER);
-    text(this.mortitotali+" "+"Decessi Totali",40,50);
     rect(0, this.mortitotali/2, 20, this.mortitotali);
 
 
     //fill(50,10,40);
     fill(194,68,96);
-    text(this.mortiuomo+" "+"Uomini",40,30);
     rect(15, this.mortiuomo/2, 10, this.mortiuomo); //grid * 1.2 ultimi due parametri
 
     //fill(50,80,120);
     fill(21,43,96);
-    text(this.mortidonna+" "+"Donne",40,10);
     rect(-15, this.mortidonna/2, 10, this.mortidonna);
+
+
+//// TESTO ISTOGRAMMA
+    fill(255);
+
+    textAlign(LEFT, CENTER);
+    text(this.mortitotali+" "+"Decessi Totali",40,30);
+    fill(194,68,96);
+    text(this.mortiuomo+" "+"Uomini",40,50);
+    fill(21,43,96);
+    text(this.mortidonna+" "+"Donne",40,10);
+    rotate(PI/2);
+
+
      //grid * 1.2
 
+
+
+ ///ANNNO
     pop();
     noStroke();
     fill(255);
@@ -134,6 +128,8 @@ function Oggetto(_id, _anno, _mortiuomo, _mortidonna, _mortitotali) {
     push();
     translate(grid-50 + (this.id * grid),height/4);
     rotate(PI/2);
+    textSize(15);
+    textStyle(BOLD);
     text(this.anno,0,0);
     pop();
 
