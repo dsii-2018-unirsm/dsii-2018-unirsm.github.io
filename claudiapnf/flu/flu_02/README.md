@@ -8,4 +8,4 @@ mortality by influence<br>
 by @claudiapnf © 2018 MIT License<br>
 DSII2018 lab @UniRSM [website](http://dsii-2018-unirsm.github.io/)<br>
 <br>
-![](https://i.imgur.com/vmHZnIm.png)
+![](https://i.imgur.com/Zvdv2og.png)
