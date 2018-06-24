@@ -1,20 +1,9 @@
-/*
+// Irene Trotta @iretrtr © 2018 MIT License
+// badlands 02 | Città San't Angelo, IT | 6.2018
+// Educational purpose, made for DSII2018 lab @UniRSM
 
-2018
-iretrtr
-(bad)lands
-
-create a map for online communities
-prototype > create a map from/with subreddit data
-
-https://github.com/iretrtr/archive/tree/master/iretrtr/making_visible
-https://github.com/iretrtr/dsii-2018-unirsm.github.io/tree/master/iretrtr/making_visible
-
-libraries:
-rhill-voronoi-core
-p5.voronoi Gorhill implementation
-
-*/
+//create a map for online communities
+//prototype > create a map from/with subreddit data
 
 
 var timeline = [];
@@ -143,7 +132,7 @@ function draw() {
   //Get ids of voronoi cells neighboring cellId
   console.log(cellId +' ' + cellColors[cellId]);
   //for every cell, draw a new cell in the exact same place
-  for (var i = 0; i < cellColors.length; i++){
+  //for (var i = 0; i < cellColors.length; i++){
     //if my mouse is on the cell change color to selected
   //   if(i == cellId){
   //     voronoiDrawCell(voronoiDiagram.cells[cellId].site.x, voronoiDiagram.cells[cellId].site.y, cellId, color(selected), VOR_CELLDRAW_SITE);

@@ -1,18 +1,9 @@
-// Daniele Tabellini @fupete © 2017 MIT License
-// P5js retrieve data from Google Spreadsheets/JSON & make OOP | Firenze, IT | 4.2017
-// Educational purpose, made for DSII2017 lab @UniRSM
-
-// P5js gdoc example inspired on Gist https://gist.github.com/claytical/6a929f14964c867e07d8 by @claytical
-
-// link del doc google spreasheets, deve essere pubblico su web,
-// va copiato la parte di indice nell'url nel formato sotto:
-// https://spreadsheets.google.com/feeds/list/
-// + KEY_URL + /od6/public/values?alt=json
+// Irene Trotta @iretrtr © 2018 MIT License
+// influ | Città San't Angelo, IT
+// Educational purpose, made for DSII2018 lab @UniRSM
 
 // carica da online
 var url = "https://spreadsheets.google.com/feeds/list/1DPekzed7yYhOclD2EdjfR9SwggtLG6jz3BMY3p4_-Ag/od6/public/values?alt=json";
-// oppure carica da file locale File/Save As...
-//var url = "data/values.json";
 
 var grid = 0;
 var ruota = true;

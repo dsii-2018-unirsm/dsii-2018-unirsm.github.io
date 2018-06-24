@@ -13,9 +13,9 @@ var totalDeaths = 0;
 function setup() {
   pixelDensity(displayDensity());
   createCanvas(windowWidth, windowHeight);
-  loadJSON(url, gotSpreadsheet, 'jsonp');   // richiedi i dati formato JSON e poi chiama la funzione gotSpreadsheet
   colorMode(RGB);
   rectMode(CENTER);
+  loadJSON(url, gotSpreadsheet, 'jsonp');   // richiedi i dati formato JSON e poi chiama la funzione gotSpreadsheet
 }
 
 function gotSpreadsheet(grafico01) {
@@ -44,13 +44,19 @@ function gotSpreadsheet(grafico01) {
    grid = height/(ogg.length+1);
    spacing = grid/2-5;
    background(0);
+   push();
+   for (var i = 0; i < totalDeaths; i++){
+     noStroke();
+     fill('#ff0000');
+     ellipse (int(random(width)), int(random(height)), 2,2);
+   }
+   pop();
    for (var i=0; i<ogg.length; i++){
      ogg[i].mostra();
    }
    fill(255);
-   //text("OBJECTS : " + ogg.length, 10,20);
-   text("influenza: " + totalDeaths + " morti", width/2,20);
- } // draw()
+   text(totalDeaths + " morti totali di influenza in Italia dal 2006 al 2011", width/2,height/2);
+ }
 
  function Oggetto(_id, _year, _men, _women){
    this.id = Number(_id);
@@ -60,15 +66,15 @@ function gotSpreadsheet(grafico01) {
    this.dx = 0; // variazione delta Y relativa al presente, si parte da 0
    this.mostra = function(){
      push();
-     translate(0, grid + this.id * grid);
      noStroke();
+     text(this.year, 5, grid + this.id * grid);
+     translate(5, grid + this.id * grid);
      //textAlign(CENTER);
-     text(this.year, 0, 0);
      rectMode(CORNER);
-     fill('#fae');
-     rect(0,0, this.women, spacing)
+     fill(255);
+     rect(0,0, this.women + this.men, 8)
      fill('#00BFFF');
-     rect(0,spacing, this.men, spacing)
+     //rect(0,13, this.men, 5)
      pop();
    }
  }

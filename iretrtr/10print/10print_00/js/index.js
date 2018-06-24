@@ -1,3 +1,7 @@
+// Irene Trotta @iretrtr © 2018 MIT License
+// 10print | Città San't Angelo, IT
+// Educational purpose, made for DSII2018 lab @UniRSM
+
 let x = 0;
 let y = 0;
 let move = 20;

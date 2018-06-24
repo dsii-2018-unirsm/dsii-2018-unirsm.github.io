@@ -1,3 +1,7 @@
+// Irene Trotta @iretrtr © 2018 MIT License
+// badlands voronoi tassellation | Città San't Angelo, IT | 5.2018
+// Educational purpose, made for DSII2018 lab @UniRSM
+
 var timeline = [];
 
 function setup() {
