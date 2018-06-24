@@ -1,5 +1,5 @@
 # Useless QR Code
- ### [launch / open]( http://dsii-2018-unirsm.github.io/lucabarbieri/10print/random_qr_code/random_qrcode.html)</br>
+ ### [launch / open]( http://dsii-2018-unirsm.github.io/lucabarbieri/10print/random_qr/random_qrcode.html)</br>
              
 
 Variazione significativa di 10 print</br>
