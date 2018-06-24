@@ -1,5 +1,5 @@
 # Resize img - P5js
- ### [launch / open]( http://dsii-2018-unirsm.github.io/lucabarbieri/making_visible/resize_img/resize_img.html)
+ ### [launch / open](http://dsii-2018-unirsm.github.io/lucabarbieri/making_visible/resize_img/resize_img.html)
              
 Un semplice modo per ridimensionare <br>
 le immagini in p5js. <br>
