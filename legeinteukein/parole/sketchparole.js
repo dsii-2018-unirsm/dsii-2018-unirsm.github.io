@@ -1,9 +1,15 @@
-//generatore parole
-// DSII2018 lab @UniRSM
-// by legeinteukein
+//GOL by legeinteukein [gol, 10print]
+//2018 © legeinteukein, Daniele @Fupete and the course DSII2018 @UniRSM
+//github.com/fupete — github.com/dsii-2018-unirsm
+//Educational purposes, MIT License, 2018, San Marino
+
+//basato sullo sketch di @andreanico generatore poesie onomatopeiche
+
 
 var x = 600;
 var y = 80;
+
+                                                                                // creazione Array
 
 var vocali = ["a","e","i","o","u"];
 var vocali2 = ["a","e","i","o","u"];
@@ -40,12 +46,12 @@ function area() {                                                               
        noFill();
        noStroke();
                                                                                 //rect(x, y, G, G);
-
+                                                                                // estrazione casuale di uno degli 8 array
        var dado = int(random(8));
        var lettera;
 
 
-       if (dado == 0) {                                                         // attributi casella di testo
+       if (dado == 0) {                                                         // estrazione casuale lettera
            fill(255);
            lettera = random (vocali);
            textSize(20);
@@ -91,7 +97,7 @@ function area() {                                                               
             textLeading(20);
             textFont("Helvetica");
             noLoop();
-
+                                                                                 // fine loop quando viene estratta una desinenza
 
        }
        else if (dado == 6) {
@@ -148,7 +154,7 @@ function spostaPuntatore() {
   if (dir == 1) textAlign(LEFT);
  }
 
-
+                                                                                // tasto per far partire un nuovo loop
  function keyTyped() {
 
   if (key === 'n') {
