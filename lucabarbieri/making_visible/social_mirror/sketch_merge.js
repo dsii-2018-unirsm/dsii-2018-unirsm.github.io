@@ -39,10 +39,6 @@ var start_time = 0;
 var stop_time = 0;
 var pixel = 0;
 
-var x = 40;
-var pixel_x = 1400;
-var y = 20;
-
 function preload(){
  for(var i =0; i<n_img;i++){
    img[i] = loadImage("assets/" + i + ".jpg"); // Load the image
@@ -100,6 +96,10 @@ text('Click for start', input.x-10, input.y-23);
 
 function draw()
 {
+  var x = 40;
+  var pixel_x = 1400;
+  var y = 100;
+
   if (disegna == true && img_count < n_img){
 
     if (time == true){
@@ -139,14 +139,14 @@ function draw()
     // incremental line
     stroke(255);
     for (var a=0; a<(n_img+1); a++){
-    line(windowWidth*0.1+(step*a), windowHeight*0.94, windowWidth*0.1+(step*a), windowHeight*0.95);
+    line(windowWidth*0.1+(step*a), windowHeight*0.94, windowWidth*0.1+(step*a), windowHeight*0.946);
     }
 
     // step by step line
     stroke(255);
       var end_step = windowWidth*0.1 + (img_count*step);
-      line (windowWidth*0.1, height*0.945, end_step, windowHeight*0.945); // step line
-      line (end_step, windowHeight*0.945, end_step + ((stop_time - start_time) / time_for_pixel), height*0.945); // parte da dove finisce quello sopra e disegna uno step (fluido)
+      line (windowWidth*0.1, height*0.943, end_step, windowHeight*0.943); // step line
+      line (end_step, windowHeight*0.943, end_step + ((stop_time - start_time) / time_for_pixel), height*0.943); // parte da dove finisce quello sopra e disegna uno step (fluido)
 
     stop_time = millis();
     // show millis in console
@@ -243,21 +243,8 @@ function draw()
     text(emotion_text[i] + " | " + emotion_color[i] , 40, emotion_text_y);
     emotion_text_y += 20;
     }
-
-    noLoop();
   }
 }
-
-/*
-// show example V1
-fill('rgba(0, 255, 0, 0.25)');
-for (var i = 0; i<sadness.length; i++){
-  if (sadness[i] < 2){
-    sadness[i] = 2;
-  }
-  ellipse(i*5, (windowHeight*0.1) + (windowHeight*0.8 - (engagement[i]*windowHeight*0.8)/100), sadness[i], sadness[i]);
-}
-*/
 
 // se ridimensiona la finestra ricalcola width e height canvas
 function windowResized() {
