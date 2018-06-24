@@ -115,8 +115,8 @@ function Oggetto(_id, _uomini,_donne,_anno) {
     textAlign(CENTER);
     translate(0,80);
     fill(80);
-    text("women: " + this.donne,testox,testoy + 20);
-    text("men: " + this.uomini,testox,testoy + 40);
+    // text("women: " + this.donne,testox,testoy + 20);
+    // text("men: " + this.uomini,testox,testoy + 40);
     textStyle(BOLD);
     textSize(20);
     fill(50);
