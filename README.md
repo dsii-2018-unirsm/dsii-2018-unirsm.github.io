@@ -2,4 +2,3 @@
 
 ## Syllabus: https://github.com/dsii-2018-unirsm/syllabus
 
-_work in progress_
