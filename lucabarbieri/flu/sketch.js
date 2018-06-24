@@ -1,5 +1,5 @@
 // Luca Barbieri @lb © 2017-18 MIT License
-// P5js retrieve data from Google Spreadsheets/JSON & make OOP | San Marino, RSM | 3.2018
+// P5js retrieve data from Google Spreadsheets/JSON & make OOP | San Marino, RSM | 6.2018
 // Educational purpose, made for DSII2018 lab @UniRSM
 
 // P5js gdoc example inspired on Gist https://gist.github.com/claytical/6a929f14964c867e07d8 by @claytical
@@ -31,87 +31,85 @@ function setup() {
 
   colorMode(HSB);
   rectMode(CENTER);
-} // setup()
+}
 
 
 function draw() {
 
-  // piccolo loop per verificare di avere i dati, stampa su schermo cerchi con i colori presenti nel google doc
-  grid = width/((ogg.length/2)+1);
+  grid = width/((ogg.length)+1);
+  grid_y = height/3;
 
-  background(100);
+  background(80);
+  fill (0, 100, 60);
   text("INFLUENCE-ASSOCIATED PEDIATRIC MORTALITY : " + anno, grid, grid); // stampa il numero oggetti in alto a sx
+  fill(0);
+  text("About half of pediatric children died of flu every year because they had risky conditions, but which ones?", grid, grid+15);
 
-  for (var i=0; i<(ogg.length/2); i++) {   // mostra tutti gli oggetti relativi al primo anno
+  for (var i=0; i<(ogg.length); i++) {   // mostra tutti gli oggetti relativi al 2016
     ogg[i].mostra();
   }
 }
 
 
-function gotSpreadsheet(colori) {
-  console.log(colori.feed.entry.length); // < debug, numero righe della tabella
-  for (var i = 0; i < colori.feed.entry.length; i++) {
+function gotSpreadsheet(dati) {
+  console.log(dati.feed.entry.length); // < debug, numero righe della tabella
+  for (var i = 0; i < dati.feed.entry.length; i++) {
     // costruzione dell'oggetto singolo, la riga
     var c = {
                   // dati, nomi delle colonne, i parametri
-                  "dimensione": colori.feed.entry[i].gsx$dimensione.$t,
-                  "colore": colori.feed.entry[i].gsx$colore.$t,
-                  "anno": colori.feed.entry[i].gsx$anno.$t,
-                  "complicazione": colori.feed.entry[i].gsx$complicazione.$t
+                  "dimensione": dati.feed.entry[i].gsx$dimensione.$t,
+                  "anno": dati.feed.entry[i].gsx$anno.$t,
+                  "complicazione": dati.feed.entry[i].gsx$complicazione.$t,
               }
     console.log(c); // < debug, verifica oggetto 1x1
-    // e ora generiamo un nuovo oggetto classe "Oggetto"
-    ogg.push(new Oggetto(i, c.dimensione, c.colore, c.anno, c.complicazione));
-
+    //nuovo oggetto classe "Oggetto"
+    ogg.push(new Oggetto(i, c.dimensione, c.anno, c.complicazione));
     anno = c.anno; // segna la variabile dell'ultimo anno identificato
   }
-  anno = anno -1 + ogg.length/10;
-} // gotSpreadsheet(colori)
+  anno = anno - 1 + ogg.length/10;
+}
 
 
 // DEFINIZIONE DELLA CLASSE OGGETTI "Oggetto"
-function Oggetto(_id, _dimensione, _colore, _anno, _complicazione) {
+function Oggetto(_id, _dimensione, _anno, _complicazione) {
 
   // DATI E COSTRUTTORE
   this.id = Number(_id); // < Number() converte in numero intero la stringa
   this.dimensione = Number(_dimensione);
-  this.colore = _colore;
   this.anno = _anno;
   this.complicazione = _complicazione;
 
-  //this.speed = _dimensione/200; //random(-10,10); // < velocità di variazione su asse y
   this.dy = 0; // variazione delta Y relativa al presente, si parte da 0
   this.speedRot = _dimensione;
 
+
   this.mostra = function() {
-    // disegna un quadrato con velocità differente e colore diverso
-    fill(0);
     push();
-    translate(grid + this.id * grid, height/2 + this.dy);
+    translate(grid + (this.id * grid), height/2 + this.dy);
+
     if (ruota) {
       rotate((frameCount/200)* this.speedRot); // maggiore è il numero dei morti e maggiore sarà la velocità
     }
-    if (this.colore == "rosso"){
-    fill (0, 100, 60);}
 
-
-    rect(0, 0, grid * 0.01, grid * 0.1);
+    fill (0, 100, 60); // red color
+    rect(0, 0, grid * 0.02, grid * 0.2);
     pop();
+
     noStroke();
     fill(0);
     textAlign(LEFT, CENTER);
+
     push();
     translate(grid + (this.id * grid),height/3);
     rotate(PI/2);
-    text(this.complicazione,0,0);
+    text(this.complicazione,0-grid_y/4,0);
     rotate(-PI/2);
-    text(this.dimensione,-5,grid);
+    text(this.dimensione,-5,grid_y);
     pop();
 
-    // text(this.colore,grid + (this.complicazione * grid),height/3); // scrive a schermo il colore del dato
-  } // display()
+  }
 
-} // Oggetto()
+}
 
 
 // se ridimensiona la finestra ricalcola width e height canvas
@@ -119,11 +117,9 @@ function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
 
+
 // implementazioni future
-// si deve fermare a contare i dati per ogni anno (0-9 elementi) OK
 // inserire un titolo OK
 // rendere visibile l'anno di riferimento OK
-// completare i dati relativi agli altri anni (fino al 2004-05)
-// sceglire se mostrare dati differenti con diversi colori
-// mettere un testo che spiega il numero totale di complicazioni rispetto quello generale di morti
-// ad ogni giro completo della linea rossa viene incrementato il numero di morti fino ad arrivare a quello effettivo
+// mettere un testo che spiega il numero totale di complicazioni rispetto quello generale di morti OK
+// pulsante per visualizzare gli anni passati

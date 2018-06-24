@@ -1,0 +1,139 @@
+<!--
+Luca Barbieri @lucabarbieri © 2018 MIT License
+Social Mirror | Ferrara, IT | 6.2018
+Educational purpose, made for DSII2018 lab @UniRSM
+-->
+
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Making visible</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.js"></script>
+  <script language="javascript" type="text/javascript" src="assets/p5.dom.js"></script>
+  <script language="javascript" type="text/javascript" src="assets/exif.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"/></script>
+  <script type="text/javascript" src="https://download.affectiva.com/js/3.1/affdex.js"/></script>
+  <script language="javascript" type="text/javascript" src="sketch_merge.js"></script>
+</head>
+
+<body>
+
+<button type="button" id="show_button" style="position:absolute; top:50%; left:50%; display:none;" onclick="onStart()">Avvia l'esperienza</button>
+<p id="name" style="position: absolute; top:40%; left:52%;"></p>
+<div id="preview" style="position:absolute; border: 0px solid; width: 640; height: 480; top:50%; left:50%; margin: -240px 0 0 -320px; display: none;"></div>
+
+<script>
+// Link a div for previewing the camera feed
+var divRoot = $("#preview")[0];
+
+// Configuration
+var width = 640;
+var height = 480;
+var faceMode = affdex.FaceDetectorMode.LARGE_FACES; // type of face recognize (Large is for adult)
+var faces_count;
+var emotion = [];
+var appearances = [];
+var disegna = false;
+
+var joy = [];
+var sadness = [];
+var disgust = [];
+var anger = [];
+var fear = [];
+var engagement = [];
+
+
+//Construct a CameraDetector
+var detector = new affdex.CameraDetector(divRoot, width, height, faceMode);
+
+
+//Enable detection of all Expressions, Emotions and Emojis classifiers.
+detector.detectAllAppearance();
+detector.detectAllEmotions();
+
+//function executes when Start button is pushed.
+function onStart() {
+
+  if (detector && !detector.isRunning) {
+    detector.start();
+    $('#preview').css('display', 'block');
+    $('#show_button').css('display', 'none');
+    $('#name').css('display', 'none');
+  }
+}
+
+
+//function executes when frameCount has arrived to the max value.
+
+function onStop() {
+	if (detector && detector.isRunning) {
+		detector.removeEventListener();
+		detector.stop();
+
+	}
+};
+
+//Add a callback to notify when the detector is initialized and ready for runing.
+detector.addEventListener("onInitializeSuccess", function() {
+  //The following two objects are oart of the Affectiva SDK
+  //Display canvas instead of video feed because we want to draw the feature points on it
+  $("#face_video_canvas").css("display", "block");
+  $("#face_video").css("display", "none");
+});
+
+//Add a callback to receive the results from processing an image.
+//The faces object contains the list of the faces detected in an image.
+//Faces object contains probabilities for all the different expressions, emotions and appearance metrics
+detector.addEventListener("onImageResultsSuccess", function(faces, image, timestamp) {
+  if (faces.length > 0) {
+//    var resultsHtml = "";
+//    resultsHtml += "Number of faces found: " + faces.length;
+//    resultsHtml += "<br>Appearances: " + JSON.stringify(faces[0].appearance);
+//    resultsHtml += "<br>Emotions: " + JSON.stringify(faces[0].emotions);
+    faces_count = faces.length;
+    appearances[timestamp] == JSON.stringify(faces[0].appearance);
+
+    emotion += (faces[0].emotions);
+    joy.push(faces[0].emotions.joy);
+    sadness.push(faces[0].emotions.sadness);
+    disgust.push(faces[0].emotions.disgust);
+    anger.push(faces[0].emotions.anger);
+    fear.push(faces[0].emotions.fear);
+
+    engagement.push(faces[0].emotions.engagement);
+
+    //var htmlToDisplay = resultsHtml.replace(/,/g,",<br>");	// make output nicer
+    //$('#results').html(htmlToDisplay);
+    //drawFeaturePoints(image, faces[0].featurePoints);
+    //when the face is recognize the image show off
+    $('#preview').css('display', 'none');
+
+    disegna = true;
+  }
+});
+
+/*
+//Draw the detected facial feature points on the image
+function drawFeaturePoints(img, featurePoints) {
+  var contxt = $('#face_video_canvas')[0].getContext('2d');
+
+  var hRatio = contxt.canvas.width / img.width;
+  var vRatio = contxt.canvas.height / img.height;
+  var ratio = Math.min(hRatio, vRatio);
+
+  contxt.strokeStyle = "#FFFFFF";
+  for (var id in featurePoints) {
+    contxt.beginPath();
+    contxt.arc(featurePoints[id].x,
+    featurePoints[id].y, 2, 0, 2 * Math.PI);
+    contxt.stroke();
+
+  }
+}
+*/
+
+</script>
+</body>
+</html>
