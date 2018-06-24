@@ -1,11 +1,11 @@
+// Claudia Panfili @claudiapnf © 2018 MIT License
+// 10 print | Perugia, IT | 6.2018
+// Educational purpose, made for DSII2018 lab @UniRSM
+//
+// prototipo:
 // generare tanti elementi quante sono le related query della keyword design
 // associare ad ogni elemento un url di riferimento
 // la velocità con cui si muove ciascun oggetto e il colore indicano il valore di interesse di quella query nel mondo
-// più un oggetto si muove velocemente e più il colore è saturo, maggiore sarà la ricerca relativa a tale query
-
-
-
-
 
 var datijson;
 var valori = [];

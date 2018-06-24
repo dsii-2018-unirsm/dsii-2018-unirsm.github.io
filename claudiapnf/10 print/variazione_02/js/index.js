@@ -1,12 +1,12 @@
-//PATTERN GENERATOR
-//10 PRINT PORTING TO P5
-//by @claudiapnf© 2018 MIT License
-//DSII2018 Lab @UNIRSM website
+// Claudia Panfili @claudiapnf © 2018 MIT License
+// 10 print | Perugia, IT | 6.2018
+// Educational purpose, made for DSII2018 lab @UniRSM
+
 //fork by purin.co
 
 //"The morphing of the maze from complex to simple (or at least understandable) is part of
 //the Commodore 64 user's ideal encounter with 10print, but the user is more like the creator
-//of the maze than its explorer" 10 PRINT, cap.20, p.37
+//of the maze than its explorer" 10 PRINT, Cambridge: MIT Press, 2012, cap.20, p.37
 
 //variabili in uso
 var a;
@@ -78,7 +78,7 @@ Module.prototype.Pressed = function() {
    if (mouseX>(this.x)-(this.s) && mouseX<(this.x)+(this.s) && mouseY>(this.y)-(this.s) && mouseY<(this.y)+(this.s)){
      //aumenta i click di uno
      this.k = this.k+1;
-     //click no più di 5 volte
+     //click non più di 5 volte
      if (this.k === 5) {
        this.k = 0;
      }
