@@ -1,6 +1,10 @@
 
 **Saltwater | treemap**<br>
 
-[launch/open](http://dsii-2018-unirsm.github.io/claudiapnf/making_visible/beta)
-
-![](https://i.imgur.com/MEHeXw2.png)
+[launch/open](http://dsii-2018-unirsm.github.io/claudiapnf/making_visible/beta)<br>
+<br>
+saltwater<br>
+by @claudiapnf © 2018 MIT License<br>
+DSII2018 lab @UniRSM [website](http://dsii-2018-unirsm.github.io/)<br>
+<br>
+![](https://i.imgur.com/PICs84X.png)
